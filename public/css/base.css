@@ -1,0 +1,18 @@
+:root {
+  --white-color: white;
+  --primary-color: #e3562a;
+  --secondary-color: #65aaea;
+  --grey: #bebab3;
+  --dark-grey: #78746d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+  color: var(--dark-grey);
+}
