@@ -147,7 +147,7 @@ User model
 
 ### Petbook project
 
-[Deployed project](https://github.com/)
+[Deployed project](...)
 
 ### Wireframes
 
@@ -155,4 +155,4 @@ User model
 
 ### Slides
 
-[Project slides](https://slides.com/tashbcn/plantiful#/)   TBD
+[Project slides](...)
