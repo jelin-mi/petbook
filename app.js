@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const { MONGO_URI } = require('./db/index');
 
 const baseRoutes = require('./routes/base');
+const authRoutes = require('./routes/auth.routes');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -18,7 +19,7 @@ function setupApp() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static('public'));
-  app.use(cookieParser());
+  app.use(cookieParser('secret'));
   app.use(morgan('dev'));
   app.use(
     session({
@@ -36,6 +37,8 @@ function setupApp() {
   );
 
   app.use('/', baseRoutes());
+
+  app.use('/auth', authRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');
