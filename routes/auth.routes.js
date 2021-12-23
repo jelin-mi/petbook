@@ -11,29 +11,30 @@ function authRoutes() {
     res.render('auth/register');
   });
 
-  /*   router.post('/register', (req, res, next) => {
-    const { user, email, hashedPassword } = req.body;
+  router.post('/register', async (req, res, next) => {
+    const { email, password } = req.body;
 
-    bcryptjs
-      .genSalt(saltRounds)
-      .then(salt => bcryptjs.hash(password, salt))
-      .then(hashedPassword => {
-        return User.create({
-          user,
-          email,
-          password: hashedPassword,
-        }).then(user => {
-          console.log('user created');
-        });
-      })
-      .catch(e => next(e));
-  }); */
+    try {
+      const salt = await bcryptjs.genSalt(saltRounds);
+      const hashedPassword = await bcryptjs.hash(password, salt);
+      await User.create({ email, hashedPassword });
+      res.redirect('/');
+    } catch (e) {
+      if (e instanceof mongoose.Error.ValidationError) {
+        return res.render('auth/register', { errorMessage: e.message });
+      }
+      if (e.name === 'MongoServerError' && e.code === 11000) {
+        return res.render('auth/register', { errorMessage: 'email exist ' });
+      }
+      next(e);
+    }
+  });
 
   router.get('/login', (req, res, next) => {
     res.render('auth/login');
   });
 
-  /*   router.post('/login', (req, res, next) => {
+  router.post('/login', (req, res, next) => {
     const { user, password } = req.body;
     if (user === '' || password === '') {
       res.render('auth/login', { errorMessage: 'Enter correct user and password' });
@@ -50,7 +51,7 @@ function authRoutes() {
       }
       next(e);
     });
-  }); */
+  });
   return router;
 }
 
