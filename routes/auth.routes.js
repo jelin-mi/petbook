@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
+const { use } = require('express/lib/application');
 const saltRounds = 10;
 
 function authRoutes() {
@@ -34,23 +35,29 @@ function authRoutes() {
     res.render('auth/login');
   });
 
-  router.post('/login', (req, res, next) => {
-    const { user, password } = req.body;
-    if (user === '' || password === '') {
-      res.render('auth/login', { errorMessage: 'Enter correct user and password' });
+  router.post('/login', async (req, res, next) => {
+    const { email, password } = req.body;
+    if (email === '' || password === '') {
+      return res.render('auth/login', { errorMessage: 'Enter correct user and password' });
     }
-    //return;
-    User.findOne({ user }).then(user => {
+
+    try {
+      const user = await User.findOne({ email });
+
       if (!user) {
-        res.render('auth/login', { errorMessage: 'User not found' });
-        return;
-      } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
-        res.render('user/user-profile', { user });
-      } else {
-        res.render('auth/login', { errorMessage: 'Incorrect password' });
+        return res.render('auth/login', { errorMessage: 'User not found' });
       }
+      if (bcryptjs.compareSync(password, user.hashedPassword)) {
+        req.session.currentUser = {
+          _id: user._id,
+          email: user.email,
+        };
+        return res.redirect('/');
+      }
+      return res.render('auth/login', { errorMessage: 'Incorrect password' });
+    } catch (e) {
       next(e);
-    });
+    }
   });
   return router;
 }
