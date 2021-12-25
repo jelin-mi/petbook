@@ -59,6 +59,7 @@ function authRoutes() {
       next(e);
     }
   });
+
   return router;
 }
 
