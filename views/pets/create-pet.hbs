@@ -3,26 +3,29 @@
 
     <label> Pet's name:
         <input type="text" name="petsName" />
-    </label>
+    </label><br />
 
-    <label> Owner:
-        <input type="text" name="owner" /></label>
-        <select name="owner" id="owner">
-            {{!-- Edit this one below according to our Petbook.
-            {{#each celebritiesFromDB}}
-            <option value="{{this._id}}">{{this.name}}</option>
-            {{/each}} --}}
-        </select>
+    {{!-- The label Owner is not correctly settled --}}
+    <label for="owner"> Owner:
+        {{#each usersFromDB}}
+        <input type="text" name="owner" value="{{ User.ObjectId }}" />
+        {{/each}}
+    </label><br />
+
+    {{!-- <label> Owner:
+        <input type="text" name="owner" />
+    </label><br /> --}}
+
 
     <label> Sex:
         <input type="text" name="sex" />
-    </label>
+    </label><br />
     <label> Age:
         <input type="number" name="age" />
-    </label>
+    </label><br />
     <label> Color:
         <input type="text" name="color" />
-    </label>
+    </label><br />
 
     <button type="submit"> Add a pet </button>
 </form>
