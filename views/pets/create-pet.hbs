@@ -1,0 +1,28 @@
+<h2>Add a new pet</h2>
+<form action="/zoo/add" method="post">
+
+    <label> Pet's name:
+        <input type="text" name="petsName" />
+    </label>
+
+    <label> Owner:
+        <input type="text" name="owner" /></label>
+        <select name="owner" id="owner">
+            {{!-- Edit this one below according to our Petbook.
+            {{#each celebritiesFromDB}}
+            <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}} --}}
+        </select>
+
+    <label> Sex:
+        <input type="text" name="sex" />
+    </label>
+    <label> Age:
+        <input type="number" name="age" />
+    </label>
+    <label> Color:
+        <input type="text" name="color" />
+    </label>
+
+    <button type="submit"> Add a pet </button>
+</form>
