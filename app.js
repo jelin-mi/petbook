@@ -9,6 +9,7 @@ const { MONGO_URI } = require('./db/index');
 
 const baseRoutes = require('./routes/base');
 const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
 
 // Enable routes/pets.js
 const petsRoutes = require('./routes/pets');
@@ -43,8 +44,12 @@ function setupApp() {
 
   app.use('/auth', authRoutes());
 
+<<<<<<< .merge_file_mteBtq
 // Enable routes/pets.js
   app.use('/', petsRoutes());
+=======
+  app.use('/user', userRoutes());
+>>>>>>> .merge_file_Bw8jUS
 
   app.use((req, res) => {
     res.render('404.hbs');

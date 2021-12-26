@@ -1,12 +1,3 @@
-
-
-## before start
-
-don't forget to modify `.env` and create a database in mongo
-
-
-
-
 # Project's name
 
 Petbook
