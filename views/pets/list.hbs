@@ -1,0 +1,8 @@
+<h2>Pets</h2>
+<ul>
+    {{#each pets}}
+    <li>Name: {{ this.petsName }}</li>
+    <li>Owner: {{this.owner.email}}</li>
+    <button><a href="/zoo/{{this._id}}">See the pet's details</a></button>
+    {{/each}}
+</ul>
