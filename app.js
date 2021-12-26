@@ -44,12 +44,9 @@ function setupApp() {
 
   app.use('/auth', authRoutes());
 
-<<<<<<< .merge_file_mteBtq
-// Enable routes/pets.js
+  // Enable routes/pets.js
   app.use('/', petsRoutes());
-=======
   app.use('/user', userRoutes());
->>>>>>> .merge_file_Bw8jUS
 
   app.use((req, res) => {
     res.render('404.hbs');
