@@ -1,0 +1,18 @@
+<div>
+    Edit user profile
+    <form action="/user/{{user.id}}/edit" method="post">
+        <label>
+            Name
+            <input type="text" name="name" value="{{user.name}}">
+        </label>
+        <label>
+            Age
+            <input type="number" name="age" value="{{user.age}}">
+        </label>
+        <label>
+            City
+            <input type="text" name="city" value="{{user.city}}">
+        </label>
+        <button type="submit">Edit profile</button>
+    </form>
+</div>
