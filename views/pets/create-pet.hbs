@@ -1,5 +1,5 @@
 <h2>Add a new pet</h2>
-<form action="/zoo/add" method="post">
+<form action="zoo/add" method="post">
 
     <label> Pet's name:
         <input type="text" name="petsName" />
@@ -7,9 +7,7 @@
 
     {{!-- The label Owner is not correctly settled --}}
     <label for="owner"> Owner:
-        {{#each usersFromDB}}
-        <input type="text" name="owner" value="{{ User.ObjectId }}" />
-        {{/each}}
+        <input type="text" name="owner" value="{{ usersFromDB.owner.email }}" /> 
     </label><br />
 
     {{!-- <label> Owner:
