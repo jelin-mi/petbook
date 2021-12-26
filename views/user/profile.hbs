@@ -1,25 +1,6 @@
 <div>
-    Edit user profile
-    <form action="/user/profile" method="post">
-        <label>
-            Name
-            <input type="text" name="name">
-        </label>
-        <label>
-            Age
-            <input type="number" name="age">
-        </label>
-        <label>
-            City
-            <input type="text" name="city">
-        </label>
-        <label>
-            Birthday
-            <input type="number" name="birthday">
-        </label>
-        <label>
-            Name
-            <input type="text" name="name">
-        </label>
-
+    User's profile
+    <h2>Name: {{user.name}}</h2>
+    <h3>age: {{user.age}}</h3>
+    <h3>City: {{user.city}}</h3>
 </div>
