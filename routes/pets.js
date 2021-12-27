@@ -17,21 +17,22 @@ function petsRoutes() {
 }); */
 
   /*  How to link it with a user? Something like this below? */
-  router.get('/zoo/add', (req, res, next) => {
+  router.get('/add', (req, res, next) => {
     User.find().then(usersFromDB => {
       res.render('pets/create-pet', { usersFromDB });
     });
   });
 
   // POST
-  router.post('/zoo/add', (req, res, next) => {
+  router.post('/add', (req, res, next) => {
     const { petsName, owner, sex, age, color } = req.body;
 
     Pet.create({ petsName, owner, sex, age, color })
       .then(dbPet => {
         return User.findByIdAndUpdate(owner, { $push: { pets: dbPet._id } });
       })
-      .then(() => res.redirect('/user-pets-list'))
+      // /user/pets-list changed to /zoo/pets-list
+      .then(() => res.redirect('/zoo/pets-list'))
       /* .catch(() => res.render('pets/create-pet')); */
       .catch(err => {
         console.log(`Err while creating the pet in the DB: ${err}`);
@@ -39,10 +40,12 @@ function petsRoutes() {
       });
   });
 
+
+
   // This is copied from Learning Unit, it needs to be adapted - other way round as we have ObjectId in  Pet model, not in a User model ??
   
   // READ - user-pets-list
-  router.get('/user-pets-list', (req, res, next) => {
+  router.get('/zoo/pets-list', (req, res, next) => {
     Pet.find()
       .populate('owner')
       .then(dbPets => {
