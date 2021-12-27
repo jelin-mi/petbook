@@ -1,20 +1,14 @@
 const express = require('express');
 /* const router = express.Router(); */
 
-// require the Pet model
+// require Pet, User model
 const Pet = require('../models/pet');
-
-// require the User model
 const User = require('../models/user');
 
 // CREATE - add a pet
 // GET
 function petsRoutes() {
   const router = express.Router();
-
-  /*  router.get('/zoo/add', (req, res, next) => {
-    res.render('pets/create-pet');
-}); */
 
   /*  How to link it with a user? Something like this below? */
   router.get('/add', (req, res, next) => {
@@ -40,12 +34,10 @@ function petsRoutes() {
       });
   });
 
-
-
   // This is copied from Learning Unit, it needs to be adapted - other way round as we have ObjectId in  Pet model, not in a User model ??
-  
-  // READ - user-pets-list
-  router.get('/zoo/pets-list', (req, res, next) => {
+
+  // READ - user-pets-list: /zoo/pets-list into /pets-list
+  router.get('/pets-list', (req, res, next) => {
     Pet.find()
       .populate('owner')
       .then(dbPets => {
@@ -59,7 +51,7 @@ function petsRoutes() {
   });
 
   // Pet details page = Pet profile
-  router.get('/zoo/:petId', (req, res, next) => {
+  router.get('/:petId', (req, res, next) => {
     const { petId } = req.params;
 
     Pet.findById(petId)
