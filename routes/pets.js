@@ -63,6 +63,38 @@ function petsRoutes() {
       });
   });
 
+  // UPDATE - EDIT pet profile
+  router.get('/:petId/edit', (req, res, next) => {
+    const { petId } = req.params;
+
+    Pet.findById(petId)
+      .then(petToEdit => {
+        console.log(petToEdit);
+        res.render('pets/edit-pet', { pet: petToEdit });
+      })
+      .catch(error => next(error));
+  });
+
+  router.post('/:petId/edit', (req, res, next) => {
+    const { petId } = req.params;
+    const { petsName, owner, sex, age, color } = req.body;
+    Pet.findByIdAndUpdate(petId, { petsName, owner, sex, age, color })
+      .then(() => res.redirect('/zoo/pets-list'))
+      .catch(error => {
+        next(error);
+      });
+  });
+
+  // DELETE a pet
+  router.post('/:petId/delete', (req, res, next) => {
+    const { petId } = req.params;
+    Pet.findByIdAndDelete(petId)
+      .then(() => res.redirect('/zoo/pets-list'))
+      .catch(error => {
+        next(error);
+      });
+  });
+
   return router;
 }
 
