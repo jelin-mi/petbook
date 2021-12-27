@@ -7,9 +7,7 @@
 
     {{!-- The label Owner is not correctly settled --}}
     <label for="owner"> Owner:
-        {{#each usersFromDB}}
         <input type="text" name="owner" value="{{ User.ObjectId }}" />
-        {{/each}}
     </label><br />
 
     {{!-- <label> Owner:
