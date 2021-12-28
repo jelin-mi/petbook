@@ -58,7 +58,7 @@ function authRoutes() {
     } catch (e) {
       next(e);
     }
-    /* 
+
     router.get('/logout', (req, res, next) => {
       req.session.destroy(err => {
         if (err) {
@@ -66,7 +66,7 @@ function authRoutes() {
         }
         res.redirect('/login');
       });
-    }); */
+    });
   });
 
   return router;
