@@ -1,0 +1,18 @@
+<h2>Name: {{petsName}}</h2>
+<ul>
+    <li>Owner: {{owner.email}} ♥️</li>
+    <li>Sex: {{sex}}</li>
+    <li>Age: {{age}}</li>
+    <li>Color: {{color}}</li>
+</ul>
+
+<button><a href="/zoo/pets-list">See all {{owner.email}}'s pets </a></button>
+
+<button><a href="/zoo/{{this._id}}/edit">Edit this pet's profile</a></button>
+
+<form action="/zoo/{{this._id}}/delete" method="post">
+    <button>Delete this pet</button>
+</form>
+
+
+{{!-- <button><a href="/{{owner._id}}/user-pets-list">See all {{owner.email}}'s pets </a></button> --}}

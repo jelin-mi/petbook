@@ -45,8 +45,7 @@ function setupApp() {
   app.use('/auth', authRoutes());
 
   // Enable routes/pets.js
-  app.use('/', petsRoutes());
-
+  app.use('/zoo', petsRoutes());
   app.use('/user', userRoutes());
 
   app.use((req, res) => {
