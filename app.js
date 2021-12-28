@@ -13,6 +13,7 @@ const userRoutes = require('./routes/user.routes');
 
 // Enable routes/pets.js
 const petsRoutes = require('./routes/pets');
+const myPetsRoutes = require('./routes/mypets');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -46,6 +47,7 @@ function setupApp() {
 
   // Enable routes/pets.js
   app.use('/zoo', petsRoutes());
+  app.use('/my-pets', myPetsRoutes());
   app.use('/user', userRoutes());
 
   app.use((req, res) => {

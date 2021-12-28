@@ -1,14 +1,14 @@
 <h2>Add a new pet</h2>
-<form action="/zoo/add" method="post">
+<form action="/my-pets/add" method="post">
 
     <label> Pet's name:
         <input type="text" name="petsName" />
     </label><br />
 
     {{!-- The label Owner is not correctly settled --}}
-    <label for="owner"> Owner:
+   {{!--  <label for="owner"> Owner:
         <input type="text" name="owner" value="{{ usersFromDB.owner.email }}" />
-    </label><br />
+    </label><br /> --}}
 
     {{!-- <label> Owner:
         <input type="text" name="owner" />
