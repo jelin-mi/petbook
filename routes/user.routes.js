@@ -14,12 +14,6 @@ function userRoutes() {
     } catch (e) {
       next(e);
     }
-    /*     const { _id } = req.session.currentUser;
-    User.findById(_id)
-      .then(user => {
-        res.render('user/profile', { user });
-      })
-      .catch(e => next(e)); */
   });
 
   router.get('/edit', async (req, res, next) => {
@@ -42,11 +36,6 @@ function userRoutes() {
     } catch (e) {
       next(e);
     }
-    /*     User.findByIdAndUpdate(_id, { name, email, age, city }, { new: true })
-      .then(() => {
-        res.redirect('/user');
-      })
-      .catch(e => next(e)); */
   });
   return router;
 }
