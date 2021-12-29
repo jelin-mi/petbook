@@ -15,12 +15,18 @@ function myPetsRoutes() {
   router.get('/add', async (req, res, next) => {
     try {
       const { _id } = req.session.currentUser;
+      
+      // My pets  
+      /* const myPets = await MyPet.find({ owner: { _id }}).populate('pet');
+      res.render('pets/create-pet', { myPets }); */
+
       const user = await User.findById({ _id }).populate('myPets');
       res.render('pets/create-pet', { user });
     } catch (e) {
       next(e);
     }
   });
+
 
   router.post('/add', async (req, res, next) => {
     try {
