@@ -16,7 +16,7 @@ const myPetSchema = new Schema({
   sex: String,
   age: Number,
   color: String, */
-
+}
 });
 
 // COMPOUND INDEXES
