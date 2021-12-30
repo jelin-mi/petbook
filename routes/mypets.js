@@ -16,20 +16,19 @@ function myPetsRoutes() {
     }
   });
 
-  router.get('/add', (req, res, next) => {
-    MyPet.find()
-      .then(pets => {
-        res.render('pets/create-pet', { pets, active: { pets: true } });
-      })
-      .catch(e => {
-        next(e);
-      });
+  router.get('/add', async (req, res, next) => {
+    try {
+      const pets = await MyPet.find();
+      res.render('pets/create-pet', { pets, active: { pets: true } });
+    } catch (e) {
+      next(e);
+    }
   });
 
   router.post('/add', async (req, res, next) => {
-    const { _id } = req.session.currentUser;
-    const { petsName, sex, age, color } = req.body;
     try {
+      const { _id } = req.session.currentUser;
+      const { petsName, sex, age, color } = req.body;
       const pet = await MyPet.create({ petsName, sex, age, color });
       const userUpdate = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
         'myPets',
@@ -42,26 +41,26 @@ function myPetsRoutes() {
   });
 
   // Pet details page = Pet profile
-  router.get('/:petId', (req, res, next) => {
-    const { petId } = req.params;
-
-    MyPet.findById(petId)
-      .then(foundPet => res.render('pets/profile', foundPet))
-      .catch(err => {
-        console.log(`Err while getting a single post from the  DB: ${err}`);
-        next(err);
-      });
+  router.get('/:petId', async (req, res, next) => {
+    try {
+      const { petId } = req.params;
+      const foundPet = await MyPet.findById(petId);
+      res.render('pets/profile', foundPet);
+    } catch (err) {
+      console.log(`Err while getting a single post from the  DB: ${err}`);
+      next(err);
+    }
   });
 
   // UPDATE - EDIT pet profile
-  router.get('/:petId/edit', (req, res, next) => {
-    const { petId } = req.params;
-
-    MyPet.findById(petId)
-      .then(petToEdit => {
-        res.render('pets/edit-pet', { pet: petToEdit });
-      })
-      .catch(error => next(error));
+  router.get('/:petId/edit', async (req, res, next) => {
+    try {
+      const { petId } = req.params;
+      const petToEdit = await MyPet.findById(petId);
+      res.render('pets/edit-pet', { pet: petToEdit });
+    } catch (error) {
+      next(error);
+    }
   });
 
   router.post('/:petId/edit', (req, res, next) => {
