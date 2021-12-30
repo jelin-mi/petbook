@@ -12,6 +12,15 @@ function baseRoutes() {
     }
   });
 
+  router.post('/logout', (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) {
+        next(err);
+      }
+      res.redirect('/auth/login');
+    });
+  });
+
   return router;
 }
 

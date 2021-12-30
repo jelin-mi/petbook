@@ -1,9 +1,7 @@
 <h2>Pets</h2>
-<ul>
-    {{#each user}}
-    {{this.myPets}}
-    Name:{{this.name}}
-    Age: {{this.age}}
-    <button><a href="/zoo/{{this._id}}">See the pet's details</a></button>
-    {{/each}}
-</ul>
+{{#each user.[0].myPets}}
+<h3>Name:{{this.petsName}}</h3>
+<h3>sex:{{this.sex}}</h3>
+<h3>Age: {{this.age}}</h3>
+<button><a href="/zoo/{{this._id}}">See the pet's details</a></button>
+{{/each}}

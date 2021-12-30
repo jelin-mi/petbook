@@ -58,15 +58,6 @@ function authRoutes() {
     } catch (e) {
       next(e);
     }
-
-    router.get('/logout', (req, res, next) => {
-      req.session.destroy(err => {
-        if (err) {
-          next(err);
-        }
-        res.redirect('/login');
-      });
-    });
   });
 
   return router;

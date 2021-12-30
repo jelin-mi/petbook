@@ -14,7 +14,8 @@ function myPetsRoutes() {
     try {
       const { _id } = req.session.currentUser;
       const user = await User.find({ _id }).populate('myPets');
-      res.render('pets/list', { user });
+      res.render('pets/list', { user, myPets: 'myPets' });
+      console.log(user);
     } catch (e) {
       next(e);
     }
@@ -23,7 +24,7 @@ function myPetsRoutes() {
   router.get('/add', (req, res, next) => {
     MyPet.find()
       .then(pets => {
-        res.render('pets/create-pet', { pets: 'pets' });
+        res.render('pets/create-pet', { pets, active: { pets: true } });
       })
       .catch(e => {
         next(e);
