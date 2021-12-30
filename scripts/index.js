@@ -6,7 +6,6 @@ const runScript = async () => {
   try {
     await mongoose.connect(MONGO_URI);
     console.log(`connected to ${MONGO_URI}`);
-    // do what you need
   } catch (error) {
     console.log(error);
   } finally {

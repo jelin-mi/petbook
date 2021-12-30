@@ -1,10 +1,6 @@
 const express = require('express');
-/* const router = express.Router(); */
-
-// require Pet, User model
 const User = require('../models/user');
 const MyPet = require('../models/MyPet');
-// para bloquear las rutas/vistas
 const { isLoggedIn } = require('../middlewares/index');
 
 function myPetsRoutes() {
@@ -15,7 +11,6 @@ function myPetsRoutes() {
       const { _id } = req.session.currentUser;
       const user = await User.find({ _id }).populate('myPets');
       res.render('pets/list', { user, myPets: 'myPets' });
-      console.log(user);
     } catch (e) {
       next(e);
     }
@@ -40,7 +35,6 @@ function myPetsRoutes() {
         'myPets',
       );
       req.session.currentUser = userUpdate;
-      console.log(userUpdate);
       res.redirect('/');
     } catch (e) {
       next(e);
@@ -65,7 +59,6 @@ function myPetsRoutes() {
 
     MyPet.findById(petId)
       .then(petToEdit => {
-        console.log(petToEdit);
         res.render('pets/edit-pet', { pet: petToEdit });
       })
       .catch(error => next(error));
