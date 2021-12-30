@@ -46,6 +46,51 @@ function myPetsRoutes() {
       next(e);
     }
   });
+
+  // Pet details page = Pet profile
+  router.get('/:petId', (req, res, next) => {
+    const { petId } = req.params;
+
+    MyPet.findById(petId)
+      .then(foundPet => res.render('pets/profile', foundPet))
+      .catch(err => {
+        console.log(`Err while getting a single post from the  DB: ${err}`);
+        next(err);
+      });
+  });
+
+  // UPDATE - EDIT pet profile
+  router.get('/:petId/edit', (req, res, next) => {
+    const { petId } = req.params;
+
+    MyPet.findById(petId)
+      .then(petToEdit => {
+        console.log(petToEdit);
+        res.render('pets/edit-pet', { pet: petToEdit });
+      })
+      .catch(error => next(error));
+  });
+
+  router.post('/:petId/edit', (req, res, next) => {
+    const { petId } = req.params;
+    const { petsName, sex, age, color } = req.body;
+    MyPet.findByIdAndUpdate(petId, { petsName, sex, age, color })
+      .then(() => res.redirect('/my-pets/list'))
+      .catch(error => {
+        next(error);
+      });
+  });
+
+  // DELETE a pet
+  router.post('/:petId/delete', (req, res, next) => {
+    const { petId } = req.params;
+    MyPet.findByIdAndDelete(petId)
+      .then(() => res.redirect('/my-pets/list'))
+      .catch(error => {
+        next(error);
+      });
+  });
+
   return router;
 }
 

@@ -1,0 +1,11 @@
+<h2>MyPetsDb</h2>
+{{#each pet}}
+<h3>Name:{{this.petsName}}</h3>
+<button><a href="/zoo/{{this._id}}">See the pet's details</a></button>
+{{/each}}
+
+<h2>Zoo</h2>
+{{#each myPet }}
+<h3>Name:{{this.petsName}}</h3>
+<button><a href="/zoo/{{this._id}}">See the pet's details</a></button>
+{{/each}}

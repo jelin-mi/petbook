@@ -1,19 +1,9 @@
 <h2>Edit {{ pet.petsName }} details</h2>
-<form action="/zoo/{{pet._id}}/edit" method="post">
+<form action="/my-pets/{{pet._id}}/edit" method="post">
 
     <label> Pet's name:
         <input type="text" name="petsName" value="{{ pet.petsName }}" />
     </label><br />
-
-    {{!-- The label Owner is not correctly settled --}}
-    <label for="owner"> Owner:
-        <input type="text" name="owner" value="{{ usersFromDB.owner.email }}" />
-    </label><br />
-
-    {{!-- <label> Owner:
-        <input type="text" name="owner" />
-    </label><br /> --}}
-
 
     <label> Sex:
         <input type="text" name="sex" value="{{ pet.sex }}"/>
