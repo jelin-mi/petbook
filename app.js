@@ -12,6 +12,8 @@ const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const petsRoutes = require('./routes/pets');
 const myPetsRoutes = require('./routes/mypets');
+const { isLoggedIn } = require('./middlewares');
+const { isLoggedOut } = require('./middlewares');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -40,10 +42,10 @@ function setupApp() {
   );
 
   app.use('/', baseRoutes());
-  app.use('/auth', authRoutes());
+  app.use('/auth', isLoggedOut, authRoutes());
   app.use('/zoo', petsRoutes());
-  app.use('/my-pets', myPetsRoutes());
-  app.use('/user', userRoutes());
+  app.use('/my-pets', isLoggedIn, myPetsRoutes());
+  app.use('/user', isLoggedIn, userRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');

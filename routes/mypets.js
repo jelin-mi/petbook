@@ -1,7 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
 const MyPet = require('../models/MyPet');
-const { isLoggedIn } = require('../middlewares/index');
 
 function myPetsRoutes() {
   const router = express.Router();
@@ -28,8 +27,8 @@ function myPetsRoutes() {
   router.post('/add', async (req, res, next) => {
     try {
       const { _id } = req.session.currentUser;
-      const { petsName, sex, age, color } = req.body;
-      const pet = await MyPet.create({ petsName, sex, age, color });
+      const { petsName, race, sex, age, color } = req.body;
+      const pet = await MyPet.create({ petsName, race, sex, age, color });
       const userUpdate = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
         'myPets',
       );
@@ -65,8 +64,8 @@ function myPetsRoutes() {
 
   router.post('/:petId/edit', (req, res, next) => {
     const { petId } = req.params;
-    const { petsName, sex, age, color } = req.body;
-    MyPet.findByIdAndUpdate(petId, { petsName, sex, age, color })
+    const { petsName, race, sex, age, color } = req.body;
+    MyPet.findByIdAndUpdate(petId, { petsName, race, sex, age, color })
       .then(() => res.redirect('/my-pets/list'))
       .catch(error => {
         next(error);

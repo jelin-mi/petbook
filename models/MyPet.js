@@ -7,6 +7,7 @@ const myPetSchema = new Schema({
     type: String,
     required: true,
   },
+  race: String,
   sex: String,
   age: Number,
   color: String,
