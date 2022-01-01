@@ -1,6 +1,6 @@
 <div>
     Edit user profile
-    <form action="/user/edit" method="post">
+    <form action="/user/edit" method="post" enctype="multipart/form-data">
         <label>User
             <input type="text" name="name" value="{{user.name}}">
         </label>
@@ -10,6 +10,12 @@
         <label>City
             <input type="text" name="city" value="{{user.city}}">
         </label>
+
+        <label>Profile picture
+            <input type="file" name="profile-picture">
+            <input type="text" name="existingImage" hidden value="{{user.imageUrl}}">
+        </label>
+
         <button type="submit">Edit profile</button>
     </form>
 </div>
