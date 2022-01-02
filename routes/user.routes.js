@@ -37,6 +37,18 @@ function userRoutes() {
       next(e);
     }
   });
+
+  router.post('/:id/delete', async (req, res, next) => {
+    const { _id } = req.session.currentUser;
+    try {
+      await User.findByIdAndDelete(_id, { new: true });
+      req.session.destroy();
+      res.redirect('/');
+    } catch (error) {
+      next(error);
+    }
+  });
+
   return router;
 }
 

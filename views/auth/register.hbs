@@ -9,4 +9,7 @@
         </label>
         <button type="submit">Create Account</button>
     </form>
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
 </div>

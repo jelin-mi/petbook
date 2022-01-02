@@ -22,7 +22,7 @@ function authRoutes() {
       res.redirect('/');
     } catch (e) {
       if (e instanceof mongoose.Error.ValidationError) {
-        return res.render('auth/register', { errorMessage: e.message });
+        return res.render('auth/register', { errorMessage: 'Enter correct email and password' });
       }
       if (e.name === 'MongoServerError' && e.code === 11000) {
         return res.render('auth/register', { errorMessage: 'email exist ' });
