@@ -6,8 +6,8 @@ function myPetsRoutes() {
   const router = express.Router();
 
   router.get('/list', async (req, res, next) => {
-    const { _id } = req.session.currentUser;
     try {
+      const { _id } = req.session.currentUser;
       const user = await User.find({ _id }).populate('myPets');
       res.render('pets/list', { user, myPets: 'myPets' });
     } catch (e) {
@@ -25,9 +25,9 @@ function myPetsRoutes() {
   });
 
   router.post('/add', async (req, res, next) => {
-    const { _id } = req.session.currentUser;
-    const { petsName, race, sex, age, color } = req.body;
     try {
+      const { _id } = req.session.currentUser;
+      const { petsName, race, sex, age, color } = req.body;
       const pet = await MyPet.create({ petsName, race, sex, age, color });
       const userUpdate = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
         'myPets',
@@ -41,8 +41,8 @@ function myPetsRoutes() {
 
   // Pet details page = Pet profile
   router.get('/:petId', async (req, res, next) => {
-    const { petId } = req.params;
     try {
+      const { petId } = req.params;
       const foundPet = await MyPet.findById(petId);
       res.render('pets/profile', foundPet);
     } catch (err) {
@@ -53,8 +53,8 @@ function myPetsRoutes() {
 
   // UPDATE - EDIT pet profile
   router.get('/:petId/edit', async (req, res, next) => {
-    const { petId } = req.params;
     try {
+      const { petId } = req.params;
       const petToEdit = await MyPet.findById(petId);
       res.render('pets/edit-pet', { pet: petToEdit });
     } catch (error) {
@@ -62,26 +62,24 @@ function myPetsRoutes() {
     }
   });
 
-  router.post('/:petId/edit', async (req, res, next) => {
+  router.post('/:petId/edit', (req, res, next) => {
     const { petId } = req.params;
     const { petsName, race, sex, age, color } = req.body;
-    try {
-      await MyPet.findByIdAndUpdate(petId, { petsName, race, sex, age, color });
-      res.redirect('/my-pets/list');
-    } catch (error) {
-      next(error);
-    }
+    MyPet.findByIdAndUpdate(petId, { petsName, race, sex, age, color })
+      .then(() => res.redirect('/my-pets/list'))
+      .catch(error => {
+        next(error);
+      });
   });
 
   // DELETE a pet
-  router.post('/:petId/delete', async (req, res, next) => {
+  router.post('/:petId/delete', (req, res, next) => {
     const { petId } = req.params;
-    try {
-      await MyPet.findByIdAndDelete(petId);
-      res.redirect('/my-pets/list');
-    } catch (error) {
-      next(error);
-    }
+    MyPet.findByIdAndDelete(petId)
+      .then(() => res.redirect('/my-pets/list'))
+      .catch(error => {
+        next(error);
+      });
   });
 
   return router;
