@@ -1,9 +1,14 @@
 <h2>Edit {{ pet.petsName }} details</h2>
-<form action="/my-pets/{{pet._id}}/edit" method="post">
+<form action="/my-pets/{{pet._id}}/edit" method="post" enctype="multipart/form-data">
 
     <label> Pet's name:
         <input type="text" name="petsName" value="{{ pet.petsName }}" />
     </label><br />
+
+    <label>Profile picture
+        <input type="file" name="pet-picture">
+        <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}">
+    </label>
     <label> Race:
         <input type="text" name="race" value="{{ pet.race }}" />
     </label><br />

@@ -1,6 +1,8 @@
 const express = require('express');
 const User = require('../models/user');
 const MyPet = require('../models/MyPet');
+const fileUploader = require('../config/cloudinary.config');
+const async = require('hbs/lib/async');
 
 function myPetsRoutes() {
   const router = express.Router();
@@ -24,15 +26,23 @@ function myPetsRoutes() {
     }
   });
 
-  router.post('/add', async (req, res, next) => {
+  router.post('/add', fileUploader.single('pet-picture'), async (req, res, next) => {
+    const { _id } = req.session.currentUser;
+    const { petsName, race, sex, age, color, existingImage } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
+
     try {
-      const { _id } = req.session.currentUser;
-      const { petsName, race, sex, age, color } = req.body;
-      const pet = await MyPet.create({ petsName, race, sex, age, color });
-      const userUpdate = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
+      const pet = await MyPet.create({ petsName, race, sex, age, color, imageUrl });
+      const userEdited = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
         'myPets',
       );
-      req.session.currentUser = userUpdate;
+      req.session.currentUser = userEdited;
       res.redirect('/');
     } catch (e) {
       next(e);
@@ -62,24 +72,34 @@ function myPetsRoutes() {
     }
   });
 
-  router.post('/:petId/edit', (req, res, next) => {
+  router.post('/:petId/edit', fileUploader.single('pet-picture'), async (req, res, next) => {
     const { petId } = req.params;
-    const { petsName, race, sex, age, color } = req.body;
-    MyPet.findByIdAndUpdate(petId, { petsName, race, sex, age, color })
-      .then(() => res.redirect('/my-pets/list'))
-      .catch(error => {
-        next(error);
-      });
+    const { petsName, race, sex, age, color, existingImage } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
+
+    try {
+      await MyPet.findByIdAndUpdate(petId, { petsName, race, sex, age, color, imageUrl }, { new: true });
+      res.redirect('/my-pets/list');
+    } catch (error) {
+      next(error);
+    }
   });
 
   // DELETE a pet
-  router.post('/:petId/delete', (req, res, next) => {
+  router.post('/:petId/delete', async (req, res, next) => {
     const { petId } = req.params;
-    MyPet.findByIdAndDelete(petId)
-      .then(() => res.redirect('/my-pets/list'))
-      .catch(error => {
-        next(error);
-      });
+    try {
+      await MyPet.findByIdAndDelete(petId);
+      res.redirect('/my-pets/list');
+    } catch (error) {
+      next(error);
+    }
   });
 
   return router;

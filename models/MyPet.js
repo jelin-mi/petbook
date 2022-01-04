@@ -11,6 +11,7 @@ const myPetSchema = new Schema({
   sex: String,
   age: Number,
   color: String,
+  imageUrl: String,
 });
 
 // COMPOUND INDEXES - for FAVORITES - following

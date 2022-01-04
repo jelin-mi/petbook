@@ -6,6 +6,7 @@ const petSchema = new Schema({
   sex: String,
   age: Number,
   color: String,
+  imageUrl: String,
 });
 
 const Pet = model('Pet', petSchema);
