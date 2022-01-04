@@ -2,6 +2,7 @@ const express = require('express');
 const async = require('hbs/lib/async');
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const fileUploader = require('../config/cloudinary.config');
 
 function userRoutes() {
   const router = express.Router();
@@ -26,11 +27,19 @@ function userRoutes() {
     }
   });
 
-  router.post('/edit', async (req, res, next) => {
+  router.post('/edit', fileUploader.single('profile-picture'), async (req, res, next) => {
     const { _id } = req.session.currentUser;
-    const { name, email, age, city } = req.body;
+    const { name, email, age, city, existingImage } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
+
     try {
-      const userEdited = await User.findByIdAndUpdate(_id, { name, email, age, city }, { new: true });
+      const userEdited = await User.findByIdAndUpdate(_id, { name, email, age, city, imageUrl }, { new: true });
       req.session.currentUser = userEdited;
       res.redirect('/user');
     } catch (e) {
