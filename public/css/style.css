@@ -9,9 +9,21 @@
 
 /* font-family: 'Rubik', sans-serif; */
 
-* {
+/* * {
   font-style: rubik;
   font-style: normal;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  color: var(--dark-grey);
 }
 
 h1 {
