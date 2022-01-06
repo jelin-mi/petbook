@@ -5,7 +5,7 @@
         <input type="text" name="petsName" value="{{ pet.petsName }}" />
     </label><br />
 
-    <label>Profile picture
+    <label> Profile picture
         <input type="file" name="pet-picture">
         <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}">
     </label>
@@ -27,3 +27,5 @@
 <form action="/my-pets/{{pet._id}}/delete" method="post">
     <button>Delete this pet</button>
 </form>
+
+{{> navBar }}
