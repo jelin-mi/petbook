@@ -8,16 +8,21 @@
     <title>Document</title>
 </head>
 
-<body>
-    <h1>Hello {{ user.email }}!</h1>
-
+<body class="greenBg home">
+    <div class="logo">
+        <img src="../images/cat_home.svg" alt="PetBook" class="imgHome">
+        <h1>PetBook</h1>
+    </div>
     {{ body }}
-    <button><a href="/auth/register">Register</a></button>
-    <button><a href="/auth/login">Login</a></button>
-    <button><a href="/user">User profile</a></button>
-    <button><a href="/zoo">Zoo</a></button>
+    <div class="homeBtn">
+        <button class="btn"><a href="/auth/register">Register</a></button>
+        <button class="btn"><a href="/auth/login">Login</a></button>
+        <button class="btn"><a href="/zoo">Zoo</a></button>
+    </div>
+    {{!-- <button><a href="/user">User profile</a></button>
     <button><a href="/my-pets/add">Add a pet</a></button>
-    <button><a href="/my-pets/list">Pet's list</a></button>
+    <button><a href="/my-pets/list">Pet's list</a></button> --}}
+    <p class="homeP">Do you want to look araound a bit before signing up? Check the pets in our Zoo</p>
 </body>
 
 </html>

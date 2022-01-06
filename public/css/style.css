@@ -23,7 +23,7 @@ body {
   font-size: 16px;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
-  color: var(--dark-grey);
+  color: var(--hardgrey-color);
 }
 
 h1 {
@@ -48,11 +48,13 @@ p {
 }
 
 .btn {
+  font-family: 'Rubik', sans-serif;
   width: 333px;
   height: 56px;
   top: 490px;
   left: 21px;
   border-radius: 8px;
+  font-size: 17px;
 }
 
 h3 {
@@ -70,4 +72,47 @@ h4 {
   left: 22px;
   top: 318px;
   border: 1px solid var(--softgrey-color);
+}
+
+/* HOME */
+.greenBg {
+  background-color: var(--green-color);
+}
+.home {
+  display: flex;
+  flex-direction: column;
+}
+.logo {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  padding: 234px 16px 433.96px 16px;
+  align-items: center;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.homeBtn {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 418px 21px 194px 21px;
+  color: var(--green-color);
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.imgHome {
+  width: 125.47px;
+  height: 92.69px;
+  padding-bottom: 19.35px;
+}
+
+.homeP {
+  color: var(--white-color);
+  display: flex;
+  text-align: center;
+  padding-bottom: 29px;
+  padding-right: 27px;
+  padding-left: 27px;
 }
