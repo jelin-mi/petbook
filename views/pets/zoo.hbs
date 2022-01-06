@@ -1,7 +1,7 @@
 <h1>Zoo</h1>
 {{#each myPet }}
-<h3>Name:{{this.petsName}}</h3>
-<h3>Race:{{this.race}}</h3>
+<h3>Name: {{this.petsName}}</h3>
+<h3>Race: {{this.race}}</h3>
 <h3>Image:<img src="{{this.imageUrl}}" /></h3>
 <button><a href="/my-pets/{{this._id}}">See the pet's details</a></button>
 {{/each}}
