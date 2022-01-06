@@ -84,6 +84,7 @@ h4 {
 /* HOME */
 .greenBg {
   background-color: var(--green-color);
+  height: 100%;
 }
 .home {
   display: flex;
@@ -152,4 +153,35 @@ h4 {
 
 .navbar h4 {
   color: var(--softgrey-color);
+}
+
+/* ERROR 404 AND 500 */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgError {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin-top: 134px;
+  font-weight: bold;
+}
+
+.h1Error {
+  margin-top: 364.04px;
+  margin-bottom: 11.96px;
+}
+
+.p1Error {
+  font-weight: lighter;
+  margin-bottom: 105.96px;
+}
+
+.errorBtn {
+  margin-top: 30px;
+  margin-right: 21px;
+  margin-left: 21px;
 }
