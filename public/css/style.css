@@ -24,6 +24,7 @@ body {
   font-family: 'Rubik', sans-serif;
   font-style: normal;
   color: var(--dark-grey);
+  position: relative;
 }
 
 h1 {
@@ -31,7 +32,7 @@ h1 {
   font-size: 33px;
   line-height: 32px;
   text-align: center;
-  color: var(--white-color);
+ /*  color: var(--white-color); */
 }
 
 h2 {
@@ -70,4 +71,36 @@ h4 {
   left: 22px;
   top: 318px;
   border: 1px solid var(--softgrey-color);
+}
+
+/* bottom navbar */
+.navbar-bg {
+  background-color: var(--whitegrey-color);
+  max-width: 100%;
+  height: 98px;
+  padding: 23px 36px 19px;
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar {
+  width: 302px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar a {
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar div img{
+  padding-bottom: 6px;
+}
+
+.navbar h4 {
+  color: var(--softgrey-color)
 }
