@@ -4,6 +4,58 @@
   --hardgrey-color: #3a3a3a;
   --softgrey-color: #9a9cac;
   --whitegrey-color: #f3f5f7;
+  --white-color: #ffffff;
 }
 
 /* font-family: 'Rubik', sans-serif; */
+
+* {
+  font-style: rubik;
+  font-style: normal;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 33px;
+  line-height: 32px;
+  text-align: center;
+  color: var(--white-color);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 32px;
+  color: var(--hardgrey-color);
+}
+
+p {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.btn {
+  width: 333px;
+  height: 56px;
+  top: 490px;
+  left: 21px;
+  border-radius: 8px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+.line {
+  position: absolute;
+  width: 268px;
+  height: 0;
+  left: 22px;
+  top: 318px;
+  border: 1px solid var(--softgrey-color);
+}
