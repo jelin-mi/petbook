@@ -1,7 +1,26 @@
-<h1>Zoo</h1>
-{{#each myPet }}
-<h3>Name: {{this.petsName}}</h3>
-<h3>Race: {{this.race}}</h3>
-<h3>Image:<img src="{{this.imageUrl}}" /></h3>
-<button><a href="/my-pets/{{this._id}}">See the pet's details</a></button>
-{{/each}}
+{{> goBack }}
+<div class="container">
+    <div class="zoo-text">
+        <h2>Zoo</h2>
+        <p>Life is better with pets...</p>
+    </div>
+
+    <div class="zoo-pets">
+        {{> petCard }}
+    </div>
+
+</div>
+{{> navBar }}
+
+
+{{!-- {{#each myPet }}
+<img src="{{this.imageUrl}}" />
+<h5>Name {{this.petsName}}</h5>
+
+<a href="/my-pets/{{this._id}}">
+    <img src="/images/arrow_right.svg" />
+</a>
+{{/each}} --}}
+
+
+{{!-- <h3>Race: {{this.race}}</h3> --}}
