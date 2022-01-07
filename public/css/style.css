@@ -54,16 +54,6 @@ p {
   line-height: 25px;
 }
 
-.btn {
-  font-family: 'Rubik', sans-serif;
-  width: 333px;
-  height: 56px;
-  top: 490px;
-  left: 21px;
-  border-radius: 8px;
-  font-size: 17px;
-}
-
 h3 {
   font-size: 16px;
 }
@@ -79,6 +69,10 @@ h4 {
 
 .greenBg {
   background-color: var(--green-color);
+}
+
+.whiteGreyBg {
+  background-color: var(--whitegrey-color);
 }
 
 /* ---------- TOP-BAR ---------- */
@@ -112,19 +106,11 @@ h4 {
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  padding: 234px 16px 433.96px 16px;
+  padding-top: 234px;
+  padding-bottom: 39.96px;
   align-items: center;
   align-content: space-between;
   justify-content: center;
-}
-
-.homeBtn {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  padding: 418px 21px 194px 21px;
-  justify-content: space-around;
-  gap: 16px;
 }
 
 .imgHome {
@@ -135,7 +121,9 @@ h4 {
 
 .homeP {
   display: flex;
+  flex-direction: column;
   text-align: center;
+  padding-top: 156px;
   padding-bottom: 29px;
   padding-right: 27px;
   padding-left: 27px;
@@ -230,9 +218,58 @@ button {
 /* ---------- USER PROFILE EDIT ---------- */
 
 /* LOGIN */
-.auth {
-  margin-top: 61px;
-  margin-left: 21px;
-  margin-right: 21px;
+.authTitle {
+  width: 332px;
+  height: 117px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  margin-top: 17px;
+  margin-bottom: 25px;
+}
+
+.authInp {
+  padding-top: 68px;
+  padding-bottom: 25px;
+}
+
+.authInput {
+  margin-bottom: 37px;
+  width: 332px;
+  height: 55px;
+  border-radius: 10px;
   text-align: center;
+}
+
+.authLabel1,
+.authLabel2 {
+  position: relative;
+}
+
+.authLabel1:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url(/images/email.svg) center / contain no-repeat;
+}
+.authLabel2:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url(/images/password.svg) center / contain no-repeat;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.authFooter {
+  text-align: center;
+  padding-top: 200px;
 }
