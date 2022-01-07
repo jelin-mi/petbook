@@ -19,9 +19,9 @@
   color: var(--softgrey-color);
 }
 
-.bolder {
+/* .bolder {
   font-weight: bolder;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -36,7 +36,7 @@ body {
 }
 
 h1 {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 33px;
   line-height: 32px;
   text-align: center;
@@ -50,9 +50,10 @@ h2 {
 }
 
 p {
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 25px;
+  color: var(--softgrey-color)
 }
 
 h3 {
@@ -61,6 +62,11 @@ h3 {
 
 h4 {
   font-size: 14px;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 /* ---------- BG COLORS ---------- */
@@ -97,7 +103,6 @@ h4 {
 }
 
 /* ---------- HOME ---------- */
-
 .home {
   display: flex;
   position: absolute;
@@ -128,6 +133,11 @@ h4 {
   padding-bottom: 29px;
   padding-right: 27px;
   padding-left: 27px;
+}
+
+.gC a {
+  color: var(--green-color);
+  font-weight: 500;
 }
 
 /* ---------- BOTTOM NAVBAR ---------- */
@@ -162,11 +172,13 @@ h4 {
   color: var(--softgrey-color);
 }
 
-/* ERROR 404 AND 500 */
+/* ---------- ERROR 404 AND 500 ---------- */
 .error {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 14px;
+  color: var(--softgrey-color)
 }
 
 .imgError {
@@ -216,6 +228,10 @@ button {
   margin-bottom: 13px;
 }
 
+button a {
+  text-decoration: none;
+}
+
 /* ---------- USER PROFILE EDIT ---------- */
 
 /* ---------- LOGIN & REGISTER ----------*/
@@ -240,6 +256,10 @@ button {
   height: 55px;
   border-radius: 10px;
   text-align: center;
+  border:none;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .authLabel1,
@@ -269,4 +289,44 @@ button {
 .authFooter {
   text-align: center;
   padding-top: 200px;
+}
+
+/* ---------- PET CARD PARTIAL ---------- */
+.pet-card {
+  width: 145px;
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--hardgrey-color)
+}
+
+.pet-img img {
+  width: 145px;
+  height: 114px;
+  padding:11.5px;
+}
+
+.name-arrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--whitegrey-color);
+  padding: 8.5px 11.5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* ---------- ZOO ---------- */
+.zoo-text {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.zoo-pets {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 14px;
 }
