@@ -1,25 +1,29 @@
-<div>
-    <div class="auth">
-        <h1>Welcome to PetBook</h1>
-        <p>Hello pet lover! I guess you are new around here. Please, register yourself to get the most from this app.
+<div class="container">
+    <div class="authTitle">
+        <h2 class="bolder">Welcome to PetBook</h2>
+        <p class="sgC">Hello pet lover! I guess you are new around here. Please, register yourself to get the most from
+            this app.
         </p>
     </div>
-    <form method="post" action="/auth/register">
-        <label>
-            <input type="text" name="email" placeholder="Email address" />
-            {{#if errorMessage}}
-            <p class="error">{{errorMessage}}</p>
-            {{/if}}
-        </label>
-        <label>
-            <input type="password" name="password" placeholder="Password" />
-            {{#if errorMessage}}
-            <p class="error">{{errorMessage}}</p>
-            {{/if}}
-        </label>
-        <button type="submit">Register</button>
+    <div class="authInp">
+        <form method="post" action="/auth/register">
+            <div class="authInput">
+                <label class="authLabel1">
+                    <input class="whiteGreyBg authInput" type="text" name="email" placeholder="Email address" />
+                </label>
+            </div>
+            <div>
+                <label class="authLabel2">
+                    <input class="whiteGreyBg authInput" type="password" name="password" placeholder="Password" />
+                    {{#if errorMessage}}
+                    <p class="error">{{errorMessage}}</p>
+                    {{/if}}
+                </label>
+            </div>
+    </div>
+    <button class="greenBg" type="submit">Register</button>
     </form>
-    <p>Already registered? Log in <a href="/auth/login">here</a>.</p>
+    <p class="authFooter sgC">Already registered?<br>Log in <a href="/auth/login">here</a>.</p>
     {{!-- {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}} --}}

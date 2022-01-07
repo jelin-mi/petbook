@@ -14,12 +14,14 @@
 .gC {
   color: var(--green-color);
 }
-/* font-family: 'Rubik', sans-serif; */
 
-/* * {
-  font-style: rubik;
-  font-style: normal;
-} */
+.sgC {
+  color: var(--softgrey-color);
+}
+
+.bolder {
+  font-weight: bolder;
+}
 
 * {
   box-sizing: border-box;
@@ -38,14 +40,13 @@ h1 {
   font-size: 33px;
   line-height: 32px;
   text-align: center;
-  /*  color: var(--white-color); */
 }
 
 h2 {
   font-weight: 500;
   font-size: 25px;
   line-height: 32px;
-  color: var(--hardgrey-color);
+  --hardgrey-color: #3a3a3a;
 }
 
 p {
@@ -217,13 +218,13 @@ button {
 
 /* ---------- USER PROFILE EDIT ---------- */
 
-/* LOGIN */
+/* ---------- LOGIN & REGISTER ----------*/
 .authTitle {
   width: 332px;
   height: 117px;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  justify-content: space-between;
   margin-top: 17px;
   margin-bottom: 25px;
 }
@@ -249,7 +250,7 @@ button {
 .authLabel1:before {
   content: '';
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 0;
   bottom: 0;
   width: 20px;
@@ -258,15 +259,11 @@ button {
 .authLabel2:before {
   content: '';
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 0;
   bottom: 0;
   width: 20px;
   background: url(/images/password.svg) center / contain no-repeat;
-}
-
-.bolder {
-  font-weight: bolder;
 }
 
 .authFooter {
