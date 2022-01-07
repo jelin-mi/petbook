@@ -1,24 +1,30 @@
-<h2>Add a new pet</h2>
-<form action="/my-pets/add" method="post" enctype="multipart/form-data">
+{{> goBack }}
+<div class="container create-pet">
+        <h2>Add a new pet</h2>
+        <p>Fill in the information about your pet.</p>
+    <form action="/my-pets/add" method="post" enctype="multipart/form-data">
 
-    <label> Pet's name:
-        <input type="text" name="petsName" />
-    </label><br />
-    <label>Profile picture
-        <input type="file" name="pet-picture">
-        <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}">
-    </label><br>
-    <label> Race:
-        <input type="text" name="race" />
-    </label><br />
-    <label> Sex:
-        <input type="text" name="sex" />
-    </label><br />
-    <label> Age:
-        <input type="number" name="age" />
-    </label><br />
-    <label> Color:
-        <input type="text" name="color" />
-    </label><br />
-    <button type="submit"> Add a pet </button>
-</form>
+        <label>Pet's name</label>
+            <input type="text" name="petsName" />
+
+        <label>Profile picture</label>
+            <input class="pic" type="file" name="pet-picture" placeholder="pet image">
+            {{!-- <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}"> --}}
+    
+        <label>Race</label>
+            <input type="text" name="race" />
+        
+        <label>Sex</label>
+            <input type="text" name="sex" />
+
+        <label>Age</label>
+            <input type="number" name="age" />
+
+        <label>Color</label>
+            <input type="text" name="color" />
+    
+        <button class="greenBg" type="submit">Add a pet</button>
+    </form>
+
+</div>
+{{> navBar }}
