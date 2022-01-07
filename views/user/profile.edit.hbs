@@ -1,6 +1,13 @@
-<div>
+{{> goBack }}
+<div class="container">
     Edit user profile
+
     <form action="/user/edit" method="post" enctype="multipart/form-data">
+        <label>Profile picture
+            <input type="file" name="profile-picture" placeholder="profile image">
+            <input type="text" name="existingImage" hidden value="{{user.imageUrl}}">
+        </label>
+
         <label>User
             <input type="text" name="name" value="{{user.name}}">
         </label>
@@ -11,14 +18,11 @@
             <input type="text" name="city" value="{{user.city}}">
         </label>
 
-        <label>Profile picture
-            <input type="file" name="profile-picture">
-            <input type="text" name="existingImage" hidden value="{{user.imageUrl}}">
-        </label>
-
-        <button type="submit">Edit profile</button>
+        <button type="submit" class="greenBg ">Save</button>
     </form>
+
     <form action="/user/{{user._id}}/delete" method="post">
-        <button>Delete this user</button>
+        <button class="greyBg">Delete my account</button>
     </form>
 </div>
+{{> navBar }}

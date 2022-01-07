@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Edit {{ pet.petsName }} details</h2>
 <form action="/my-pets/{{pet._id}}/edit" method="post" enctype="multipart/form-data">
 
@@ -27,5 +28,5 @@
 <form action="/my-pets/{{pet._id}}/delete" method="post">
     <button>Delete this pet</button>
 </form>
-
+</div>
 {{> navBar }}

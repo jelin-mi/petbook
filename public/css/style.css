@@ -72,6 +72,26 @@ h4 {
   font-size: 14px;
 }
 
+/* ---------- BG COLORS ---------- */
+.greyBg {
+  background-color: var(--softgrey-color);
+}
+
+.greenBg {
+  background-color: var(--green-color);
+}
+
+/* ---------- TOP-BAR ---------- */
+.top-bar {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 21px 8px;
+}
+
+/* ---------- FORM ---------- */
 .line {
   position: absolute;
   width: 268px;
@@ -81,11 +101,8 @@ h4 {
   border: 1px solid var(--softgrey-color);
 }
 
-/* HOME */
-.greenBg {
-  background-color: var(--green-color);
-  height: 100%;
-}
+/* ---------- HOME ---------- */
+
 .home {
   display: flex;
   position: absolute;
@@ -123,7 +140,8 @@ h4 {
   padding-right: 27px;
   padding-left: 27px;
 }
-/* bottom navbar */
+
+/* ---------- BOTTOM NAVBAR ---------- */
 .navbar-bg {
   background-color: var(--whitegrey-color);
   max-width: 100%;
@@ -185,3 +203,28 @@ h4 {
   margin-right: 21px;
   margin-left: 21px;
 }
+/* ---------- GO BACK button ---------- */
+.go-back {
+  padding-left: 9px;
+}
+
+/* ---------- PADDING FOR PAGES ---------- */
+.container {
+  padding: 0 21px;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+  border-radius: 8px;
+  border: none;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  text-align: center;
+  color: var(--white-color);
+  font-family: 'Rubik', sans-serif;
+  font-size: 17px;
+  width: 100%;
+  margin-bottom: 13px;
+}
+
+/* ---------- USER PROFILE EDIT ---------- */
