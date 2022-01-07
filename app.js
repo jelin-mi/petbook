@@ -18,7 +18,7 @@ const { isLoggedOut } = require('./middlewares');
 
 // handlebars.registerPartials(`${__dirname}/views/partials`);
 /* handlebars.registerPartials(__dirname + '/views/partials'); */
-handlebars.registerPartials(path.join(__dirname, '/views/partials'));
+handlebars.registerPartials(path.join(__dirname + '/views/partials'));
 
 function setupApp() {
   const app = express();
