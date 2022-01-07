@@ -1,14 +1,23 @@
 <div>
+    <h1>Welcome to PetBook</h1>
+    <p>Hello pet lover, please log in to your account.</p>
     <form action="/auth/login" method="post">
-        <label>email
-            <input type="text" name="email" placeholder="email" />
+        <label>
+            <input type="text" name="email" placeholder="Email address" />
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
         </label>
-        <label> Password
-            <input type="password" name="password" placeholder="type your passsword" />
+        <label>
+            <input type="password" name="password" placeholder="Password" />
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
         </label>
         <button type="submit">Login</button>
     </form>
-    {{#if errorMessage}}
+    <p>Don't you have an account yet? Register <a href="/auth/register">here.</a></p>
+    {{!-- {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
-    {{/if}}
+    {{/if}} --}}
 </div>

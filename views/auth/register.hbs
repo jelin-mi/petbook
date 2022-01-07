@@ -1,15 +1,26 @@
 <div>
-    Register
+    <div class="auth">
+        <h1>Welcome to PetBook</h1>
+        <p>Hello pet lover! I guess you are new around here. Please, register yourself to get the most from this app.
+        </p>
+    </div>
     <form method="post" action="/auth/register">
-        <label> Email
-            <input type="text" name="email" placeholder="Your email" />
+        <label>
+            <input type="text" name="email" placeholder="Email address" />
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
         </label>
-        <label> Password
-            <input type="password" name="password" placeholder="**********" />
+        <label>
+            <input type="password" name="password" placeholder="Password" />
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
         </label>
-        <button type="submit">Create Account</button>
+        <button type="submit">Register</button>
     </form>
-    {{#if errorMessage}}
+    <p>Already registered? Log in <a href="/auth/login">here</a>.</p>
+    {{!-- {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
-    {{/if}}
+    {{/if}} --}}
 </div>
