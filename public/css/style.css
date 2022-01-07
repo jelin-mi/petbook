@@ -53,7 +53,7 @@ p {
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  color: var(--softgrey-color)
+  color: var(--softgrey-color);
 }
 
 h3 {
@@ -67,6 +67,10 @@ h4 {
 h5 {
   font-size: 12px;
   font-weight: 500;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* ---------- BG COLORS ---------- */
@@ -172,13 +176,23 @@ h5 {
   color: var(--softgrey-color);
 }
 
+.bottom-line {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 33%;
+  right: 33%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ---------- ERROR 404 AND 500 ---------- */
 .error {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 14px;
-  color: var(--softgrey-color)
+  color: var(--softgrey-color);
 }
 
 .imgError {
@@ -232,8 +246,6 @@ button a {
   text-decoration: none;
 }
 
-/* ---------- USER PROFILE EDIT ---------- */
-
 /* ---------- LOGIN & REGISTER ----------*/
 .authTitle {
   width: 332px;
@@ -256,7 +268,7 @@ button a {
   height: 55px;
   border-radius: 10px;
   text-align: center;
-  border:none;
+  border: none;
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -298,13 +310,13 @@ button a {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  background-color: var(--hardgrey-color)
+  background-color: var(--hardgrey-color);
 }
 
 .pet-img img {
   width: 145px;
   height: 114px;
-  padding:11.5px;
+  padding: 11.5px;
 }
 
 .name-arrow {
@@ -329,4 +341,22 @@ button a {
   flex-direction: row;
   justify-content: center;
   gap: 14px;
+}
+
+/* ---------- ADD A PET - CREATE ---------- */
+.create-pet input {
+  border: none;
+  border-bottom: 1px solid var(--softgrey-color);
+  margin-bottom: 10px;
+  padding: 8px 5px;
+}
+
+form label,
+form input {
+  display: block;
+  width: 80%;
+}
+
+form {
+  margin-top: 5px;
 }
