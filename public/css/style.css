@@ -206,11 +206,13 @@ a {
 .h1Error {
   margin-top: 364.04px;
   margin-bottom: 11.96px;
+  color: var(--white-color);
 }
 
 .p1Error {
   font-weight: lighter;
   margin-bottom: 105.96px;
+  color: var(--white-color);
 }
 
 .errorBtn {
@@ -251,11 +253,9 @@ button a {
 }
 
 .btn-main {
-
 }
 
 .btn-invert {
-  
 }
 
 /* <button class="btn btn-main"> */
@@ -276,7 +276,7 @@ button a {
 }
 
 .authInput {
-  margin-bottom: 37px;
+  margin-bottom: 37px; /* modificar 2 input */
   width: 332px;
   height: 55px;
   border-radius: 10px;

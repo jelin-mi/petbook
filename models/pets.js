@@ -7,7 +7,7 @@ const petsSchema = new Schema({
     required: true,
   },
   race: String,
-  sex: { type: String /* enum: ['Male', 'Female', 'Le'] */ },
+  sex: { type: String, enum: ['Male', 'Female', 'Le'] },
   age: Number,
   color: String,
   imageUrl: String,
@@ -17,7 +17,7 @@ const Pets = model('Pets', petsSchema);
 
 module.exports = Pets;
 
-// TODO check validations if need it
+// TODO dropdown
 
 // COMPOUND INDEXES - for FAVORITES - following
 // To not to add a pet twice to the database:
