@@ -5,8 +5,7 @@ const isLoggedIn = (req, res, next) => {
   next();
 };
 
-// TODO better name isAnomUser
-const isLoggedOut = (req, res, next) => {
+const isAnomUser = (req, res, next) => {
   if (req.session.currentUser) {
     return res.redirect('/');
   }
@@ -15,5 +14,5 @@ const isLoggedOut = (req, res, next) => {
 
 module.exports = {
   isLoggedIn,
-  isLoggedOut,
+  isAnomUser,
 };

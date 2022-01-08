@@ -11,10 +11,11 @@ const { MONGO_URI } = require('./db/index');
 const baseRoutes = require('./routes/base');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const zooRoutes = require('./routes/zoo');
+//const oldPetsRoutes = require('./routes/oldPets'); //TODO revisar
 const petsRoutes = require('./routes/pets');
-const myPetsRoutes = require('./routes/mypets');
 const { isLoggedIn } = require('./middlewares');
-const { isLoggedOut } = require('./middlewares');
+const { isAnomUser } = require('./middlewares');
 
 // handlebars.registerPartials(`${__dirname}/views/partials`);
 /* handlebars.registerPartials(__dirname + '/views/partials'); */
@@ -45,9 +46,9 @@ function setupApp() {
   );
 
   app.use('/', baseRoutes());
-  app.use('/auth', isLoggedOut, authRoutes());
-  app.use('/zoo', petsRoutes());
-  app.use('/my-pets', isLoggedIn, myPetsRoutes());
+  app.use('/auth', isAnomUser, authRoutes());
+  app.use('/zoo', zooRoutes());
+  app.use('/my-pets', isLoggedIn, petsRoutes());
   app.use('/user', isLoggedIn, userRoutes());
 
   app.use((req, res) => {
@@ -64,7 +65,6 @@ function setupApp() {
       res.render('500.hbs');
     }
     // req.app.get('env') === 'development' ? err : {};
-    
   });
 
   return app;
