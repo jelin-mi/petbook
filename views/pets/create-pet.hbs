@@ -6,17 +6,24 @@
 
         <label>Pet's name</label>
             <input type="text" name="petsName" />
-
-        <label>Profile picture</label>
-            <input class="pic" type="file" name="pet-picture" placeholder="pet image">
+<div class="file-img">
+        <label >Profile picture</label>
+            <input class="pic" type="file" title=" " name="pet-picture" placeholder="pet image" />
             {{!-- <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}"> --}}
-    
+    </div>
         <label>Race</label>
             <input type="text" name="race" />
         
-        <label>Sex</label>
-            <input type="text" name="sex" />
-
+        <label for="sex" class="dropdown">Sex 
+            <select id="sex" name="sex">
+{{!-- // TODO can we show the sex's option dynamically with each?   --}}  
+            {{!-- {{#each pet}}
+                <option value="{{this.sex}}">{{this.sex}}</option>
+            {{/each}}  --}}   
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+       </label>
         <label>Age</label>
             <input type="number" name="age" />
 

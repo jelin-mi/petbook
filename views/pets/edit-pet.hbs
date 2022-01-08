@@ -1,33 +1,40 @@
-<div class="container">
-
-    <h2>Edit {{pet.petsName}}details</h2>
+{{> goBack }}
+<div class="container create-pet">
+    <h2>Edit pet's details</h2>
     <form action="/my-pets/{{pet._id}}/edit" method="post" enctype="multipart/form-data">
 
-        <label> Pet's name:
+        <label>Pet's name</label>
             <input type="text" name="petsName" value="{{ pet.petsName }}" />
-        </label><br />
 
-        <label> Profile picture
-            <input type="file" name="pet-picture">
-            <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}">
-        </label>
-        <label> Race:
+        <div class="file-img">
+            <label>Profile picture</label>
+                <input class="pic" type="file" name="pet-picture" placeholder="pet image" />
+                {{!-- <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}" /> --}}
+        </div>
+
+        <label>Race</label>
             <input type="text" name="race" value="{{ pet.race }}" />
-        </label><br />
-        <label> Sex:
-            <input type="text" name="sex" value="{{ pet.sex }}" />
-        </label><br />
-        <label> Age:
-            <input type="number" name="age" value="{{ pet.age }}" />
-        </label><br />
-        <label> Color:
-            <input type="text" name="color" value="{{ pet.color }}" />
-        </label><br />
 
-        <button type="submit">Update the pet's info</button>
+        {{!-- <label>Sex:
+            <input type="text" name="sex" value="{{ pet.sex }}" /> --}}
+        <label for="sex" class="dropdown">Sex
+            <select id="sex" name="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </label>
+
+        <label>Age</label>
+            <input type="number" name="age" value="{{ pet.age }}" />
+        
+        <label>Color</label>
+            <input type="text" name="color" value="{{ pet.color }}" />
+
+        <button class="greenBg" type="submit">Save</button>
     </form>
     <form action="/my-pets/{{pets._id}}/delete" method="post">
-        <button>Delete this pet</button>
+        <button class="greyBg">Delete this pet</button>
     </form>
+
 </div>
 {{> navBar }}
