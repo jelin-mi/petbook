@@ -5,6 +5,7 @@ const isLoggedIn = (req, res, next) => {
   next();
 };
 
+// TODO better name isAnomUser
 const isLoggedOut = (req, res, next) => {
   if (req.session.currentUser) {
     return res.redirect('/');

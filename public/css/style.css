@@ -246,6 +246,19 @@ button a {
   text-decoration: none;
 }
 
+.btn {
+  /* base styles */
+}
+
+.btn-main {
+
+}
+
+.btn-invert {
+  
+}
+
+/* <button class="btn btn-main"> */
 /* ---------- LOGIN & REGISTER ----------*/
 .authTitle {
   width: 332px;

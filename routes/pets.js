@@ -7,7 +7,7 @@ function petsRoutes() {
   const router = express.Router();
   router.get('/', async (req, res, next) => {
     try {
-      const pet = await Pet.find();
+      const pet = await Pet.find(); // remove this 
       const myPet = await MyPet.find();
       res.render('pets/zoo', { pet, myPet });
     } catch (e) {

@@ -58,11 +58,13 @@ function setupApp() {
     let err;
     if (req.app.get('env') === 'development') {
       err = error;
+      res.render('error', { message: error.message, error: err });
     } else {
       err = {};
+      res.render('500.hbs');
     }
     // req.app.get('env') === 'development' ? err : {};
-    res.render('error', { message: error.message, error: err });
+    
   });
 
   return app;

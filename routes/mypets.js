@@ -10,7 +10,7 @@ function myPetsRoutes() {
   router.get('/list', async (req, res, next) => {
     try {
       const { _id } = req.session.currentUser;
-      const user = await User.find({ _id }).populate('myPets');
+      const user = await User.find({ _id }).populate('myPets');// TODO change the find when change relation
       res.render('pets/list', { user, myPets: 'myPets' });
     } catch (e) {
       next(e);
@@ -19,8 +19,8 @@ function myPetsRoutes() {
 
   router.get('/add', async (req, res, next) => {
     try {
-      const pets = await MyPet.find();
-      res.render('pets/create-pet', { pets, active: { pets: true } });
+      const pets = await MyPet.find(); // TODO if not need it delete it
+      res.render('pets/create-pet', { pets, active: { pets: true } }); // TODO remove all variable that we send to views if we don't use it
     } catch (e) {
       next(e);
     }
@@ -41,7 +41,7 @@ function myPetsRoutes() {
       const pet = await MyPet.create({ petsName, race, sex, age, color, imageUrl });
       const userEdited = await User.findByIdAndUpdate(_id, { $push: { myPets: pet._id } }, { new: true }).populate(
         'myPets',
-      );
+      );// TODO change realation and we will simplify this logic only one access to DB
       req.session.currentUser = userEdited;
       res.redirect('/');
     } catch (e) {
