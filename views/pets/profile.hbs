@@ -12,6 +12,9 @@
 {{!-- <button><a href="/my-pets/list">See all {{owner.email}}'s pets </a></button> --}}
 
 <button><a href="/my-pets/{{this._id}}/edit">Edit this pet's profile</a></button>
+{{#if errorMessage}}
+<p class="error">{{errorMessage}}</p>
+{{/if}}
 
 <form action="/my-pets/{{this._id}}/delete" method="post">
     <button>Delete this pet</button>

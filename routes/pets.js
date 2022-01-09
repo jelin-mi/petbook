@@ -58,10 +58,16 @@ function petsRoutes() {
 
   // UPDATE - EDIT pet profile
   router.get('/:petId/edit', async (req, res, next) => {
+    const { petId } = req.params;
+    const { _id } = req.session.currentUser;
     try {
-      const { petId } = req.params;
       const pet = await Pets.findById(petId);
-      res.render('pets/edit-pet', { pet });
+      const { owner } = pet;
+      if (_id === owner.toString()) {
+        res.render('pets/edit-pet', { pet });
+      } else {
+        return res.render('pets/profile', pet /* { errorMessage: 'This is not your pet' } */); //TODO Errormesage
+      }
     } catch (error) {
       next(error);
     }
