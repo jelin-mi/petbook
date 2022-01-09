@@ -20,6 +20,10 @@
     </div>
 
     <button class="greenBg"><a href="/my-pets/{{this._id}}/edit">Edit pet's profile</a></button>
+<button><a href="/my-pets/{{this._id}}/edit">Edit this pet's profile</a></button>
+{{#if errorMessage}}
+<p class="error">{{errorMessage}}</p>
+{{/if}}
 
     <form action="/my-pets/{{this._id}}/delete" method="post">
         <button class="greyBg">Delete this pet</button>
