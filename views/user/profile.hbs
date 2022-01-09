@@ -1,11 +1,28 @@
-{{> goBack }}
-
-<div>
-    User's profile
-    <h3><img src="{{user.imageUrl}}"></h3>
-    <h3>Name: {{user.name}}</h3>
-    <h3>Email:{{user.email}}</h3>
-    <h3>age: {{user.age}}</h3>
-    <h3>City: {{user.city}}</h3>
-    <a href="/user/edit">Edit profile</a>
+<div class="icons">
+    {{> goBack }}
+    {{> logout }}
 </div>
+
+<div class="container user-profile">
+    <img src="{{user.imageUrl}}">
+
+    {{#if user.name}}
+    <h2>{{user.name}}'s profile</h2>
+    {{else}}
+    <h2>Your profile</h2>
+    {{/if }}
+
+    <p>Here is all you shared with us.</p>
+    <div class="user-info">
+        <h3>Email</h3>
+        <p>{{user.email}}</p>
+        <h3>Age</h3>
+        <p> {{user.age}}</p>
+        <h3>City</h3>
+        <p> {{user.city}}</p>
+    </div>
+    <button class="greenBg"><a href="/user/edit">Edit profile</a></button>
+    <button class="greenBg"><a href="/my-pets/list">My pets</a></button>
+</div>
+
+{{> navBar }}
