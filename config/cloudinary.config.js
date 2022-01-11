@@ -9,7 +9,7 @@ cloudinary.config({
 });
 
  // TODO resize the images to be squared - how??
- // cloudinary.image({ height: 145, width: 145, sign_url: true });
+// cloudinary.image({ height: 145, width: 145, sign_url: true });
 
 const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
