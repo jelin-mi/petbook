@@ -46,10 +46,12 @@ function petsRoutes() {
 
   // Pet details page = Pet profile
   router.get('/:petId', async (req, res, next) => {
+    const { _id } = req.session.currentUser;
     try {
       const { petId } = req.params;
       const foundPet = await Pets.findById(petId);
-      res.render('pets/profile', foundPet);
+      const { owner } = foundPet;
+      res.render('pets/profile', { pet: foundPet, isOwner: _id === owner.toString() });
     } catch (err) {
       console.log(`Err while getting a single post from the  DB: ${err}`);
       next(err);
@@ -66,7 +68,7 @@ function petsRoutes() {
       if (_id === owner.toString()) {
         res.render('pets/edit-pet', { pet });
       } else {
-        return res.render('pets/profile', pet /* { errorMessage: 'This is not your pet' } */); //TODO Errormesage
+        return res.render('pets/profile', { pet });
       }
     } catch (error) {
       next(error);

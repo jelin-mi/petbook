@@ -1,21 +1,15 @@
-<h2>Name: {{petsName}}</h2>
+<h2>Name: {{pet.petsName}}</h2>
 <ul>
-    <img src="{{imageUrl}}">
-    {{!-- <img src="{{pet.imageUrl}}"> --}}
-    {{!-- <img src="{{this.imageUrl}}"> --}}
-    <li>Race: {{race}}</li>
-    <li>Sex: {{sex}}</li>
-    <li>Age: {{age}}</li>
-    <li>Color: {{color}}</li>
+    <img src="{{pet.imageUrl}}">
+    <li>Race: {{pet.race}}</li>
+    <li>Sex: {{pet.sex}}</li>
+    <li>Age: {{pet.age}}</li>
+    <li>Color: {{pet.color}}</li>
 </ul>
 
-{{!-- <button><a href="/my-pets/list">See all {{owner.email}}'s pets </a></button> --}}
-
+{{#if isOwner}}
 <button><a href="/my-pets/{{this._id}}/edit">Edit this pet's profile</a></button>
-{{#if errorMessage}}
-<p class="error">{{errorMessage}}</p>
-{{/if}}
-
-<form action="/my-pets/{{this._id}}/delete" method="post">
+<form action="/my-pets/{{pet._id}}/delete" method="post">
     <button>Delete this pet</button>
+    {{/if}}
 </form>
