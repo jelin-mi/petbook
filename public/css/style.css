@@ -187,6 +187,14 @@ a {
   margin-right: auto;
 }
 
+.active {
+  color: var(--green-color);
+}
+
+.active h4 {
+  color: var(--green-color);
+}
+
 /* ---------- ERROR 404 AND 500 ---------- */
 .error {
   display: flex;
@@ -485,3 +493,4 @@ input[type='file'] {
   padding-bottom: 33px;
   padding-top: 66px;
 }
+
