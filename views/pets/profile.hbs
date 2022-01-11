@@ -1,15 +1,29 @@
-<h2>Name: {{pet.petsName}}</h2>
-<ul>
-    <img src="{{pet.imageUrl}}">
-    <li>Race: {{pet.race}}</li>
-    <li>Sex: {{pet.sex}}</li>
-    <li>Age: {{pet.age}}</li>
-    <li>Color: {{pet.color}}</li>
-</ul>
+{{> goBack }}
+<div class="container user-profile">
+    <img src="{{imageUrl}}">
+    {{#if pet.petsName}}
+    <h2>{{pet.petsName}}'s profile</h2>
+    {{else}}
+    <h2>Pet's profile</h2>
+    {{/if }}
 
-{{#if isOwner}}
-<button><a href="/my-pets/{{this._id}}/edit">Edit this pet's profile</a></button>
-<form action="/my-pets/{{pet._id}}/delete" method="post">
-    <button>Delete this pet</button>
+    <p>Here is all you shared with us.</p>
+    <div class="user-info">
+        <h3>Race</h3>
+        <p>{{pet.race}}</p>
+        <h3>Sex</h3>
+        <p>{{pet.sex}}</p>
+        <h3>Age</h3>
+        <p>{{pet.age}}</p>
+        <h3>Color</h3>
+        <p>{{pet.color}}</p>
+    </div>
+    {{#if isOwner}}
+    <button class="greenBg"><a href="/my-pets/{{this._id}}/edit">Edit pet's profile</a></button>
+    <form action="/my-pets/{{this._id}}/delete" method="post">
+        <button class="greyBg">Delete this pet</button>
+    </form>
     {{/if}}
-</form>
+</div>
+
+{{> navBar }}

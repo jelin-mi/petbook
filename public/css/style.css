@@ -2,6 +2,7 @@
   --green-color: #4ba48f;
   --black-color: #000000;
   --hardgrey-color: #3a3a3a;
+  --grey-color: #80859A;
   --softgrey-color: #9a9cac;
   --whitegrey-color: #f3f5f7;
   --white-color: #ffffff;
@@ -13,15 +14,12 @@
 
 .gC {
   color: var(--green-color);
+  width: 100%;
 }
 
 .sgC {
   color: var(--softgrey-color);
 }
-
-/* .bolder {
-  font-weight: bolder;
-} */
 
 * {
   box-sizing: border-box;
@@ -58,6 +56,9 @@ p {
 
 h3 {
   font-size: 16px;
+  color: var(--grey-color);
+  font-weight: 500;
+  line-height: 25px;
 }
 
 h4 {
@@ -150,7 +151,7 @@ a {
   max-width: 100%;
   height: 98px;
   padding: 23px 36px 19px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
@@ -225,6 +226,16 @@ a {
   padding-left: 9px;
 }
 
+/* ---------- LOGOUT button ---------- */
+.logout {
+  padding-right: 17px;
+}
+
+.logout img {
+  width:30px;
+  height: auto;
+}
+
 /* ---------- PADDING FOR PAGES ---------- */
 .container {
   padding: 0 21px;
@@ -234,8 +245,8 @@ a {
 button {
   border-radius: 8px;
   border: none;
-  padding-top: 21px;
-  padding-bottom: 21px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: center;
   color: var(--white-color);
   font-family: 'Rubik', sans-serif;
@@ -366,6 +377,10 @@ button a {
   padding: 8px 5px 3px;
 }
 
+.create-pet p {
+ padding-bottom: 5px;
+}
+
 form label,
 form input {
   display: block;
@@ -377,7 +392,6 @@ form {
 }
 
 .dropdown {
-  padding-bottom: 6px;
   border-bottom: 1px solid var(--softgrey-color);
   margin-bottom: 8px;
   padding-bottom: 20px;
@@ -388,6 +402,7 @@ select {
   padding: 2px;
   margin-left: 5px;
   border: 1px solid var(--softgrey-color);
+  background-color: transparent;
   border-radius: 3px;
   font-size: 12px;
 }
@@ -422,4 +437,51 @@ input[type='file'] {
 
 .file-img label {
   width: 60%;
+}
+
+/* ---------- USER PROFILE ---------- */
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-profile img {
+  width: 100%;
+  height: auto;
+  max-width: 100px;
+  border-radius: 50%;
+  padding-bottom: 5px;
+}
+
+.user-profile p {
+  padding-bottom: 8px;
+}
+
+.user-profile a {
+  color: var(--white-color);
+}
+
+.user-info {
+  padding-bottom: 15px;
+}
+
+.user-info p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+
+/* ---------- COVER ---------- */
+.cover {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-title {
+  color: white;
+  padding-bottom: 33px;
+  padding-top: 66px;
 }

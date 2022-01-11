@@ -1,22 +1,23 @@
 {{> goBack }}
-<div class="container">
-    Edit user profile
-
+<div class="container create-pet">
+    <h2>Edit your profile</h2>
+    <p>Add some more details about you.</p>
     <form action="/user/edit" method="post" enctype="multipart/form-data">
-        <label>Profile picture
-            <input type="file" name="profile-picture" placeholder="profile image">
-            <input type="text" name="existingImage" hidden value="{{user.imageUrl}}">
-        </label>
+    <div class="file-img">
+        <label>Profile picture</label>
+            <input class="pic" type="file" name="profile-picture" placeholder="profile image">
+            {{!-- <input type="text" name="existingImage" hidden value="{{user.imageUrl}}"> --}}
+    </div>    
 
-        <label>User
+        <label>Name</label>
             <input type="text" name="name" value="{{user.name}}">
-        </label>
-        <label>Age
+        
+        <label>Age</label>
             <input type="number" name="age" value="{{user.age}}">
-        </label>
-        <label>City
+        
+        <label>City</label>
             <input type="text" name="city" value="{{user.city}}">
-        </label>
+        
 
         <button type="submit" class="greenBg ">Save</button>
     </form>
