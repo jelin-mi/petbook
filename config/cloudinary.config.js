@@ -8,13 +8,16 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
- // TODO resize the images to be squared - how??
+// TODO resize the images to be squared - how??
 // cloudinary.image({ height: 145, width: 145, sign_url: true });
 
 const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
   cloudinary,
   params: {
+    width: 140,
+    height: 140,
+    crop: 'scale',
     allowed_formats: ['jpg', 'png'],
     folder: 'petbook', // The name of the folder in cloudinary
     // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
