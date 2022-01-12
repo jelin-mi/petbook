@@ -44,7 +44,6 @@ function petsRoutes() {
     }
   });
 
-  // Pet details page = Pet profile
   router.get('/:petId', async (req, res, next) => {
     const { _id } = req.session.currentUser;
     try {
@@ -58,7 +57,6 @@ function petsRoutes() {
     }
   });
 
-  // UPDATE - EDIT pet profile
   router.get('/:petId/edit', async (req, res, next) => {
     const { petId } = req.params;
     const { _id } = req.session.currentUser;
@@ -94,7 +92,6 @@ function petsRoutes() {
     }
   });
 
-  // DELETE a pet
   router.post('/:petId/delete', async (req, res, next) => {
     const { petId } = req.params;
     try {

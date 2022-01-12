@@ -1,35 +1,27 @@
 {{> goBack }}
 <div class="container create-pet">
-        <h2>Add a new pet</h2>
-        <p>Fill in the information about your pet.</p>
+    <h2>Add a new pet</h2>
+    <p>Fill in the information about your pet.</p>
     <form action="/my-pets/add" method="post" enctype="multipart/form-data">
-
         <label>Pet's name</label>
-            <input type="text" name="petsName" />
-<div class="file-img">
-        <label >Profile picture</label>
+        <input type="text" name="petsName" />
+        <div class="file-img">
+            <label>Profile picture</label>
             <input class="pic" type="file" title=" " name="pet-picture" placeholder="pet image" />
-            {{!-- <input type="text" name="existingImage" hidden value="{{pet.imageUrl}}"> --}}
-    </div>
+        </div>
         <label>Race</label>
-            <input type="text" name="race" />
-        
-        <label for="sex" class="dropdown">Sex 
+        <input type="text" name="race" />
+
+        <label for="sex" class="dropdown">Sex
             <select id="sex" name="sex">
-{{!-- // TODO can we show the sex's option dynamically with each?   --}}  
-            {{!-- {{#each pet}}
-                <option value="{{this.sex}}">{{this.sex}}</option>
-            {{/each}}  --}}   
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-       </label>
+        </label>
         <label>Age</label>
-            <input type="number" name="age" />
-
+        <input type="number" name="age" />
         <label>Color</label>
-            <input type="text" name="color" />
-    
+        <input type="text" name="color" />
         <button class="greenBg" type="submit">Add a pet</button>
     </form>
 
