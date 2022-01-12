@@ -12,7 +12,7 @@
                     <input class="whiteGreyBg authInput" type="text" name="email" placeholder="Email address" />
                 </label>
             </div>
-            <div>
+            <div class="authInput pass">
                 <label class="authLabel2">
                     <input class="whiteGreyBg authInput" type="password" name="password" placeholder="Password" />
                     {{#if errorMessage}}
@@ -21,9 +21,11 @@
                 </label>
             </div>
     </div>
-    <button class="greenBg" type="submit">Register</button>
-    </form>
-    <p class="authFooter sgC">Already registered?<br>Log in <a href="/auth/login">here</a>.</p>
+    
+        <button class="greenBg" type="submit">Register</button>
+        </form>
+        <p class="authFooter sgC">Already registered?<br>Log in <a href="/auth/login">here</a>.</p>
+    
     {{!-- {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}} --}}

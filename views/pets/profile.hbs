@@ -1,6 +1,11 @@
 {{> goBack }}
 <div class="container user-profile">
-    <img src="{{imageUrl}}">
+    {{!-- <img src="{{imageUrl}}"> --}}
+    {{#if pet.imageUrl}}
+    <img src="{{pet.imageUrl}}">
+    {{else}}
+    {{/if}}
+
     {{#if pet.petsName}}
     <h2>{{pet.petsName}}'s profile</h2>
     {{else}}
@@ -19,8 +24,8 @@
         <p>{{pet.color}}</p>
     </div>
     {{#if isOwner}}
-    <button class="greenBg"><a href="/my-pets/{{this._id}}/edit">Edit pet's profile</a></button>
-    <form action="/my-pets/{{this._id}}/delete" method="post">
+    <button class="greenBg"><a href="/my-pets/{{pet._id}}/edit">Edit pet's profile</a></button>
+    <form action="/my-pets/{{pet._id}}/delete" method="post">
         <button class="greyBg">Delete this pet</button>
     </form>
     {{/if}}

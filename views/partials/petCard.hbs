@@ -1,14 +1,13 @@
 {{#each petsZoo }}
-<div class="pet-card">
-    <div class="pet-img">
-        <img src="{{this.imageUrl}}" />
-    </div>
-    <div class="name-arrow">
-        <h5>{{this.petsName}}</h5>
-        <a href="/my-pets/{{this._id}}">
+<a href="/my-pets/{{this._id}}">
+    <div class="pet-card">
+        <div class="pet-img">
+            <img src="{{this.imageUrl}}" />
+        </div>
+        <div class="name-arrow">
+            <h5>{{this.petsName}}</h5>
             <img src="/images/arrow_right.svg" />
-        </a>
+        </div>
     </div>
-
-</div>
+</a>
 {{/each}}
