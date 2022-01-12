@@ -6,7 +6,7 @@ function baseRoutes() {
   router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-      res.render('home.hbs', { name: 'Ironhack', user });
+      res.render('home.hbs', { name: 'Ironhack', user, isAnom: !user });
     } catch (e) {
       next(e);
     }

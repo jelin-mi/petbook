@@ -15,6 +15,9 @@ function authRoutes() {
   router.post('/register', async (req, res, next) => {
     const { email, password } = req.body;
 
+    if (email === '' || password === '') {
+      return res.render('auth/register', { errorMessage: 'Enter correct user and password' });
+    }
     try {
       const salt = await bcryptjs.genSalt(saltRounds);
       const hashedPassword = await bcryptjs.hash(password, salt);
@@ -27,6 +30,7 @@ function authRoutes() {
       if (e.name === 'MongoServerError' && e.code === 11000) {
         return res.render('auth/register', { errorMessage: 'email exist ' });
       }
+
       next(e);
     }
   });
