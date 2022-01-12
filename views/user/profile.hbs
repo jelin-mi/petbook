@@ -4,7 +4,11 @@
 </div>
 
 <div class="container user-profile">
+    {{#if user.imageUrl}}
     <img src="{{user.imageUrl}}">
+    {{else}}
+    {{/if}}
+
     {{#if user.name}}
     <h2>{{user.name}}'s profile</h2>
     {{else}}

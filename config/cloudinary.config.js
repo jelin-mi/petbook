@@ -11,8 +11,8 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    width: 140,
-    height: 140,
+    width: 145,
+    height: 145,
     crop: 'scale',
     allowed_formats: ['jpg', 'png'],
     folder: 'petbook',

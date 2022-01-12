@@ -6,11 +6,12 @@
   --softgrey-color: #9a9cac;
   --whitegrey-color: #f3f5f7;
   --white-color: #ffffff;
+  --red-color: red;
 }
 
-.wL {
+/* .wL {
   color: var(--white-color);
-}
+} */
 
 .gC {
   color: var(--green-color);
@@ -44,7 +45,8 @@ h2 {
   font-weight: 500;
   font-size: 25px;
   line-height: 32px;
-  --hardgrey-color: #3a3a3a;
+  color: var(--hardgrey-color);
+  padding-bottom: 5px;
 }
 
 p {
@@ -56,7 +58,7 @@ p {
 
 h3 {
   font-size: 16px;
-  color: var(--grey-color);
+  /* color: var(--grey-color); */
   font-weight: 500;
   line-height: 25px;
 }
@@ -66,7 +68,7 @@ h4 {
 }
 
 h5 {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -110,7 +112,6 @@ a {
 /* ---------- HOME ---------- */
 .home {
   display: flex;
-  position: absolute;
   flex-direction: column;
 }
 .logo {
@@ -134,7 +135,6 @@ a {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-top: 156px;
   padding-bottom: 29px;
   padding-right: 27px;
   padding-left: 27px;
@@ -143,6 +143,38 @@ a {
 .gC a {
   color: var(--green-color);
   font-weight: 500;
+}
+
+/* ---------- COVER ---------- */
+.cover {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+}
+
+.icon-title {
+  color: white;
+  padding-bottom: 33px;
+  padding-top: 66px;
+}
+
+.paraf {
+  position: absolute;
+  bottom: 0;
+}
+
+.paraf p {
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.paraf p a {
+  text-decoration: underline;
+  color: var(--white-color);
 }
 
 /* ---------- BOTTOM NAVBAR ---------- */
@@ -201,7 +233,7 @@ a {
   flex-direction: column;
   align-items: center;
   font-size: 14px;
-  color: var(--softgrey-color);
+  color: var(--red-color);
 }
 
 .imgError {
@@ -220,7 +252,7 @@ a {
 
 .p1Error {
   font-weight: lighter;
-  margin-bottom: 105.96px;
+  /*margin-bottom: 105.96px;*/
   color: var(--white-color);
 }
 
@@ -237,6 +269,10 @@ a {
 /* ---------- LOGOUT button ---------- */
 .logout {
   padding-right: 17px;
+}
+
+.logout button {
+  background-color: transparent;
 }
 
 .logout img {
@@ -281,8 +317,7 @@ button a {
 
 /* ---------- LOGIN & REGISTER ----------*/
 .authTitle {
-  width: 332px;
-  height: 117px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -291,13 +326,12 @@ button a {
 }
 
 .authInp {
-  padding-top: 68px;
+  padding-top: 30px;
   padding-bottom: 25px;
 }
 
 .authInput {
-  margin-bottom: 37px; /* modificar 2 input */
-  width: 332px;
+  margin-bottom: 28px; /* modificar 2 input */
   height: 55px;
   border-radius: 10px;
   text-align: center;
@@ -305,6 +339,14 @@ button a {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   font-size: 16px;
+}
+
+.authInput input:last-child {
+  margin-bottom: 5px;
+}
+
+.authInput.pass input {
+  margin-bottom: 5px;
 }
 
 .authLabel1,
@@ -333,24 +375,48 @@ button a {
 
 .authFooter {
   text-align: center;
-  padding-top: 200px;
+}
+
+.auth-confirm {
+  position: absolute;
+  bottom: 0;
+}
+
+p.authFooter {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+p.authFooter a {
+  font-size: 16px;
+  color: var(--softgrey-color);
+  font-weight: 400;
+  line-height: 25px;
+  text-decoration: underline;
 }
 
 /* ---------- PET CARD PARTIAL ---------- */
 .pet-card {
   width: 145px;
-  height: 145px;
+  height: auto;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  background-color: var(--hardgrey-color);
   overflow: hidden;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.pet-img {
+  background-color: var(--hardgrey-color);
 }
 
 .pet-img img {
-  width: 100%;
-  height: 114px;
-  max-width: 145px;
+  /* height: 145px; */
+  height: auto;
+  width: 145px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .name-arrow {
@@ -374,11 +440,19 @@ button a {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  gap: 14px;
+  gap: 30px 30px;
+  padding-top: 10px;
+}
+
+.zoo-pets a {
+  color: var(--hardgrey-color);
 }
 
 /* ---------- ADD A PET - CREATE ---------- */
 .create-pet input {
+  font-family: 'Rubik';
+  font-size: 14px;
+  font-weight: 400;
   border: none;
   border-bottom: 1px solid var(--softgrey-color);
   margin-bottom: 10px;
@@ -389,10 +463,14 @@ button a {
   padding-bottom: 5px;
 }
 
+form label {
+  font-weight: 500;
+}
+
 form label,
 form input {
   display: block;
-  width: 80%;
+  width: 100%;
 }
 
 form {
@@ -434,7 +512,7 @@ input[type='file'] {
 .file-img {
   display: flex;
   border-bottom: 1px solid var(--softgrey-color);
-  width: 80%;
+  width: 100%;
   margin-bottom: 8px;
 }
 
@@ -477,18 +555,4 @@ input[type='file'] {
 .user-info p {
   font-size: 14px;
   padding-bottom: 5px;
-}
-
-/* ---------- COVER ---------- */
-.cover {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.icon-title {
-  color: white;
-  padding-bottom: 33px;
-  padding-top: 66px;
 }
