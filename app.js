@@ -55,13 +55,11 @@ function setupApp() {
     let err;
     if (req.app.get('env') === 'development') {
       err = error;
-      /* res.render('error', { message: error.message, error: err }); */
       res.render('500.hbs');
     } else {
       err = {};
       res.render('500.hbs');
     }
-    // req.app.get('env') === 'development' ? err : {};
   });
 
   return app;

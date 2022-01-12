@@ -1,10 +1,10 @@
 {{> goBack }}
+
 <div class="container">
     <div class="zoo-text">
         <h2>My pets</h2>
         <p>Look how beautiful your pets are!</p>
     </div>
-
     <div class="zoo-pets">
         {{> myPetsCard }}
     </div>
@@ -12,13 +12,3 @@
 </div>
 
 {{> navBar }}
-
-
-{{!-- <h2>Pets</h2>
-{{#each user.[0].myPets}}
-<h3>Name: {{this.petsName}}</h3>
-<h3>Race: {{this.race}}</h3>
-<img src="{{this.imageUrl}}">
-<button><a href="/my-pets/{{this._id}}">See the pet's details</a></button>
-<button><a href="/my-pets/{{this._id}}/edit">Edit this pet's profile</a></button>
-{{/each}} --}}
