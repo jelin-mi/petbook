@@ -90,6 +90,7 @@ a {
 }
 
 /* ---------- TOP-BAR ---------- */
+
 .top-bar {
   height: auto;
   width: 100%;
@@ -97,6 +98,10 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 12px 21px 8px;
+}
+
+.home .top-bar {
+  position: fixed;
 }
 
 /* ---------- FORM ---------- */
@@ -110,10 +115,10 @@ a {
 }
 
 /* ---------- HOME ---------- */
-.home {
+/* .home {
   display: flex;
   flex-direction: column;
-}
+} */
 .logo {
   font-weight: bold;
   display: flex;
@@ -147,11 +152,17 @@ a {
 
 /* ---------- COVER ---------- */
 .cover {
+  /*   display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px; */
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 500px;
+  height: 100%;
+  text-align: center;
 }
 
 .icon-title {
@@ -163,6 +174,7 @@ a {
 .paraf {
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .paraf p {
@@ -180,6 +192,7 @@ a {
 /* ---------- BOTTOM NAVBAR ---------- */
 .navbar-bg {
   background-color: var(--whitegrey-color);
+  width: 100%;
   max-width: 100%;
   height: 98px;
   padding: 23px 36px 19px;
@@ -194,6 +207,7 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  margin: 0 auto;
 }
 
 .navbar a {
@@ -213,10 +227,11 @@ a {
   position: absolute;
   z-index: 100;
   bottom: 0;
-  left: 33%;
-  right: 33%;
+  left: 0;
+  right: 0;
   margin-left: auto;
   margin-right: auto;
+  width: 134px;
 }
 
 .active {
@@ -236,18 +251,23 @@ a {
   color: var(--red-color);
 }
 
+.error-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .imgError {
-  position: absolute;
   width: 200px;
   height: 200px;
-  margin-top: 134px;
   font-weight: bold;
 }
 
 .h1Error {
-  margin-top: 364.04px;
-  margin-bottom: 11.96px;
   color: var(--white-color);
+  padding-bottom: 5px;
 }
 
 .p1Error {
@@ -273,6 +293,8 @@ a {
 
 .logout button {
   background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .logout img {
@@ -281,8 +303,16 @@ a {
 }
 
 /* ---------- PADDING FOR PAGES ---------- */
+.home .container {
+  margin-bottom: 0;
+}
 .container {
   padding: 0 21px;
+  min-height: 100vh;
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 130px;
 }
 
 /* ---------- BUTTON ---------- */
@@ -440,8 +470,9 @@ p.authFooter a {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  gap: 30px 30px;
-  padding-top: 10px;
+  justify-content: flex-start;
+  gap: 35px 43px;
+  padding-top: 20px;
 }
 
 .zoo-pets a {
