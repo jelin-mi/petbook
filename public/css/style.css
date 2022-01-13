@@ -303,16 +303,17 @@ a {
 }
 
 /* ---------- PADDING FOR PAGES ---------- */
-.home .container {
-  margin-bottom: 0;
+.home .container,
+.page-error .container {
+  padding-bottom: 0;
 }
+
 .container {
-  padding: 0 21px;
+  padding: 0 21px 130px;
   min-height: 100vh;
   max-width: 375px;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 130px;
 }
 
 /* ---------- BUTTON ---------- */
