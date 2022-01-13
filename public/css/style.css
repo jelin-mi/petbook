@@ -9,10 +9,6 @@
   --red-color: red;
 }
 
-/* .wL {
-  color: var(--white-color);
-} */
-
 .gC {
   color: var(--green-color);
   width: 100%;
@@ -58,7 +54,6 @@ p {
 
 h3 {
   font-size: 16px;
-  /* color: var(--grey-color); */
   font-weight: 500;
   line-height: 25px;
 }
@@ -77,6 +72,7 @@ a {
 }
 
 /* ---------- BG COLORS ---------- */
+
 .greyBg {
   background-color: var(--softgrey-color);
 }
@@ -105,6 +101,7 @@ a {
 }
 
 /* ---------- FORM ---------- */
+
 .line {
   position: absolute;
   width: 268px;
@@ -115,10 +112,7 @@ a {
 }
 
 /* ---------- HOME ---------- */
-/* .home {
-  display: flex;
-  flex-direction: column;
-} */
+
 .logo {
   font-weight: bold;
   display: flex;
@@ -152,11 +146,6 @@ a {
 
 /* ---------- COVER ---------- */
 .cover {
-  /*   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 500px; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -190,6 +179,7 @@ a {
 }
 
 /* ---------- BOTTOM NAVBAR ---------- */
+
 .navbar-bg {
   background-color: var(--whitegrey-color);
   width: 100%;
@@ -216,7 +206,11 @@ a {
 }
 
 .navbar div img {
-  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.navbar div svg {
+  margin-bottom: 6px;
 }
 
 .navbar h4 {
@@ -243,6 +237,7 @@ a {
 }
 
 /* ---------- ERROR 404 AND 500 ---------- */
+
 .error {
   display: flex;
   flex-direction: column;
@@ -272,7 +267,6 @@ a {
 
 .p1Error {
   font-weight: lighter;
-  /*margin-bottom: 105.96px;*/
   color: var(--white-color);
 }
 
@@ -281,12 +275,15 @@ a {
   margin-right: 21px;
   margin-left: 21px;
 }
+
 /* ---------- GO BACK button ---------- */
+
 .go-back {
   padding-left: 9px;
 }
 
 /* ---------- LOGOUT button ---------- */
+
 .logout {
   padding-right: 17px;
 }
@@ -303,6 +300,7 @@ a {
 }
 
 /* ---------- PADDING FOR PAGES ---------- */
+
 .home .container,
 .page-error .container {
   padding-bottom: 0;
@@ -317,6 +315,7 @@ a {
 }
 
 /* ---------- BUTTON ---------- */
+
 button {
   border-radius: 8px;
   border: none;
@@ -334,19 +333,8 @@ button a {
   text-decoration: none;
 }
 
-/* .btn {
-  base styles
-}
-
-.btn-main {
-}
-
-.btn-invert {
-} */
-
-/* <button class="btn btn-main"> */
-
 /* ---------- LOGIN & REGISTER ----------*/
+
 .authTitle {
   height: auto;
   display: flex;
@@ -362,7 +350,7 @@ button a {
 }
 
 .authInput {
-  margin-bottom: 28px; /* modificar 2 input */
+  margin-bottom: 28px;
   height: 55px;
   border-radius: 10px;
   text-align: center;
@@ -428,6 +416,7 @@ p.authFooter a {
 }
 
 /* ---------- PET CARD PARTIAL ---------- */
+
 .pet-card {
   width: 145px;
   height: auto;
@@ -443,7 +432,6 @@ p.authFooter a {
 }
 
 .pet-img img {
-  /* height: 145px; */
   height: auto;
   width: 145px;
   display: inline-block;
@@ -461,6 +449,7 @@ p.authFooter a {
 }
 
 /* ---------- ZOO ---------- */
+
 .zoo-text {
   text-align: center;
   margin-bottom: 8px;
@@ -481,6 +470,7 @@ p.authFooter a {
 }
 
 /* ---------- ADD A PET - CREATE ---------- */
+
 .create-pet input {
   font-family: 'Rubik';
   font-size: 14px;
@@ -526,8 +516,8 @@ select {
 }
 
 /* ---------- UPLOAD AN IMAGE ---------- */
+
 .pic::-webkit-file-upload-button {
-  /* visibility: hidden; */
   font-family: 'Rubik', sans-serif;
   display: inline-block;
   background-color: transparent;
@@ -558,6 +548,7 @@ input[type='file'] {
 }
 
 /* ---------- USER PROFILE ---------- */
+
 .icons {
   display: flex;
   flex-direction: row;
