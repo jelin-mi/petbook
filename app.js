@@ -55,7 +55,7 @@ function setupApp() {
     let err;
     if (req.app.get('env') === 'development') {
       err = error;
-      res.render('500.hbs');
+      res.render('error', { message: error.message, error: err });
     } else {
       err = {};
       res.render('500.hbs');

@@ -35,7 +35,9 @@ function petsRoutes() {
     } else {
       imageUrl = existingImage;
     }
-
+    if (petsName === '') {
+      return res.render('pets/create-pet', { errorMessage: `Pet's name is required` });
+    }
     try {
       await Pets.create({ owner: _id, petsName, race, sex, age, color, imageUrl });
       res.redirect('/zoo');

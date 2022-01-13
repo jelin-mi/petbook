@@ -24,6 +24,9 @@
         <input type="text" name="color" />
         <button class="greenBg" type="submit">Add a pet</button>
     </form>
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
 
 </div>
 {{> navBar }}
