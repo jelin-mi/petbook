@@ -22,7 +22,7 @@ function authRoutes() {
       const salt = await bcryptjs.genSalt(saltRounds);
       const hashedPassword = await bcryptjs.hash(password, salt);
       await User.create({ email, hashedPassword });
-      res.redirect('/');
+      res.redirect('/auth/login');
     } catch (e) {
       if (e instanceof mongoose.Error.ValidationError) {
         return res.render('auth/register', { errorMessage: 'Enter correct email and password' });
@@ -56,7 +56,7 @@ function authRoutes() {
           _id: user._id,
           email: user.email,
         };
-        return res.redirect('/');
+        return res.redirect('/zoo');
       }
       return res.render('auth/login', { errorMessage: 'Incorrect password' });
     } catch (e) {

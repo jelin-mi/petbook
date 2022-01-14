@@ -2,6 +2,7 @@ const express = require('express');
 const async = require('hbs/lib/async');
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Pets = require('../models/pets');
 const fileUploader = require('../config/cloudinary.config');
 
 function userRoutes() {
@@ -50,7 +51,8 @@ function userRoutes() {
   router.post('/:id/delete', async (req, res, next) => {
     const { _id } = req.session.currentUser;
     try {
-      await User.findByIdAndDelete(_id, { new: true });
+      await Pets.deleteMany({ owner: _id });
+      await User.findByIdAndDelete(_id);
       req.session.destroy();
       res.redirect('/');
     } catch (error) {
