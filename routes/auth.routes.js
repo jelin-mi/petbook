@@ -28,7 +28,7 @@ function authRoutes() {
         return res.render('auth/register', { errorMessage: 'Enter correct email and password' });
       }
       if (e.name === 'MongoServerError' && e.code === 11000) {
-        return res.render('auth/register', { errorMessage: 'email exist ' });
+        return res.render('auth/register', { errorMessage: 'Email exists ' });
       }
 
       next(e);
