@@ -31,7 +31,6 @@ function userRoutes() {
   router.post('/edit', fileUploader.single('profile-picture'), async (req, res, next) => {
     const { _id } = req.session.currentUser;
     const { name, email, age, city, existingImage } = req.body;
-    console.log(req.file);
     let imageUrl;
     if (req.file) {
       imageUrl = req.file.path;
