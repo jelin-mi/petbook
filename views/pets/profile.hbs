@@ -25,9 +25,9 @@
     </div>
     {{#if isOwner}}
     <button class="greenBg"><a href="/my-pets/{{pet._id}}/edit">Edit pet's profile</a></button>
-    <form action="/my-pets/{{pet._id}}/delete" method="post">
+    {{!-- <form action="/my-pets/{{pet._id}}/delete" method="post">
         <button class="greyBg">Delete this pet</button>
-    </form>
+    </form> --}}
     {{/if}}
 </div>
 
