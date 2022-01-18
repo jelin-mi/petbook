@@ -2,7 +2,11 @@
 <a href="/my-pets/{{this._id}}">
     <div class="pet-card">
         <div class="pet-img">
+            {{#if imageUrl}}
             <img src="{{this.imageUrl}}" />
+            {{else}}
+            <img src="/images/defaultimage.jpg" />
+            {{/if}}
         </div>
         <div class="name-arrow">
             <h5>{{this.petsName}}</h5>
