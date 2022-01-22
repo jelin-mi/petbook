@@ -217,7 +217,7 @@ a {
   color: var(--softgrey-color);
 }
 
-.bottom-line {
+/* .bottom-line {
   position: absolute;
   z-index: 100;
   bottom: 0;
@@ -226,7 +226,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   width: 134px;
-}
+} */
 
 .active {
   color: var(--green-color);
@@ -280,12 +280,14 @@ a {
 
 .go-back {
   padding-left: 9px;
+  margin-top: 10px;
 }
 
 /* ---------- LOGOUT button ---------- */
 
 .logout {
   padding-right: 17px;
+  margin-top: 10px;
 }
 
 .logout button {
@@ -553,6 +555,7 @@ input[type='file'] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .user-profile img {
